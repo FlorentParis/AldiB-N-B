@@ -1,6 +1,6 @@
 
     <?php get_header(); ?>
 
-    hey bro
+    hey brother
 
     <?php get_footer(); ?>

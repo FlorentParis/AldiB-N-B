@@ -8,6 +8,7 @@
 
             <div>
                 <h5 class="card-title"><?php the_title(); ?></h5>
+                <a href="http://localhost:5555/articles">Articles</a>
             </div>
 
         <?php endwhile; ?>

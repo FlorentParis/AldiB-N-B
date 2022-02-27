@@ -46,5 +46,21 @@ function wpheticPaginate()
     return ob_get_clean();
 }
 
+function createUser() 
+{
+    if(isset($_POST["admin"])){
+        $admin = "administrateur";
+    }else{
+        $admin = "";
+    }
+
+    wp_insert_user( array(
+        'user_pass' => $_POST["pwd"],
+        'user_login' => $_POST["username"],
+        'user_email' => $_POST["log"],
+        'role' => $admin
+    ));
+};
+
 add_action('after_setup_theme','wphetic_theme_support');
 add_action('wp_enqueue_scripts','wphetic_bootstrap');

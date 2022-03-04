@@ -1,0 +1,98 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero > .container-pic {
+  background-image: url("../../../img/Appart1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -80px;
+  z-index: -5;
+}
+
+.hero > .container-destination-bar {
+  position: absolute;
+  bottom: 50px;
+}
+
+.container-destination-bar > span {
+  font-size: 40px;
+  color: #fff;
+  font-family: "SignPainter";
+}
+
+.container-destination-bar > .destination-bar {
+  background-color: #fff;
+  display: flex;
+  border-radius: 6px;
+  height: 70px;
+  border: 1px solid #484f83;
+}
+
+.destination-bar > .case {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  margin: 12px 0;
+  padding: 0 20px;
+}
+
+.destination-bar > .case:not(.case:last-of-type) {
+  border-right: 1px solid #484f83;
+}
+
+.destination-bar > .case:first-of-type {
+  width: 300px;
+}
+
+.case > label {
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+.case > input {
+  border: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #484f83;
+  font-family: "Avenir", sans-serif;
+  font-weight: 550;
+  height: 20px;
+  outline: none;
+}
+
+.case > input::placeholder {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #484f83;
+  font-family: "Avenir", sans-serif;
+  font-weight: 550;
+}
+
+.case:first-of-type > input {
+  border-radius: 20px;
+}
+
+.destination-bar > button {
+  background-color: #353c6f;
+  border: none;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  width: 200px;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-top: -1px;
+  margin-right: -1px;
+  height: 70px;
+  font-family: "Avenir";
+  font-weight: 850;
+}

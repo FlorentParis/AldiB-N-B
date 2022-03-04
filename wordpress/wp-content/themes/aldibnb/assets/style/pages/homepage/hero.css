@@ -56,7 +56,7 @@
 
 .case > label {
   font-family: "Montserrat";
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .case > input {
@@ -67,6 +67,7 @@
   font-family: "Avenir", sans-serif;
   font-weight: 550;
   height: 20px;
+  font-size: 18px;
   outline: none;
 }
 
@@ -95,4 +96,59 @@
   height: 70px;
   font-family: "Avenir";
   font-weight: 850;
+  padding: 0;
+  min-width: 50px;
+}
+
+@media only screen and (max-width: 1124px) {
+  .container-destination-bar {
+    width: 100%;
+    padding: 0 40px;
+  }
+  .container-destination-bar > .destination-bar {
+    width: 100%;
+  }
+  .destination-bar > .case {
+    width: 20%;
+  }
+  .destination-bar > button {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container-destination-bar > .destination-bar {
+    height: 50px;
+    align-items: center;
+  }
+  .case > label {
+    font-size: 12px;
+  }
+  .case > input {
+    font-size: 14px;
+  }
+  .case > input::placeholder {
+    font-size: 14px;
+  }
+  .destination-bar > button {
+    height: 50px;
+  }
+}
+@media only screen and (max-width: 690px) {
+  .container-destination-bar > .destination-bar > .case:first-of-type {
+    width: 100%;
+    border-right: none;
+  }
+  .case > label {
+    display: none;
+  }
+  .destination-bar > .case:not(.case:first-of-type) {
+    display: none;
+  }
+  .container-destination-bar > .destination-bar > button {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

@@ -11,20 +11,27 @@
                 <input type="text" placeholder="Où voulez-vous aller ?" />
             </div>
             <div class="case">
-                <label>Arrivée</label>
+                <label>Départ</label>
                 <input type="date" placeholder="De quand ?" />
             </div>
             <div class="case">
-                <label>Départ</label>
+                <label>Arrivée</label>
                 <input type="date" placeholder="À quand ?" />
             </div>
             <div class="case">
                 <label>Voyageurs</label>
                 <input type="number" placeholder="Avec qui ?" />
             </div>
-            <button>Réserver</button>
+            <button><img src="wp-content/themes/aldibnb/assets/icons/search.svg" /></button>
         </form>
     </div>
+</div>
+<div class="popular-rentals">
+    <span class="title">Les destinations/locations les plus populaires</span>
+    <div class="container-popular-rentals">
+        
+    </div>
+    <button>En voir plus</button>
 </div>
 
 <?php get_footer(); ?>

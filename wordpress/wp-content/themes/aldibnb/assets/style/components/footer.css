@@ -1,0 +1,42 @@
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: #353c6f;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 90px;
+}
+
+footer .footer-left {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+footer .footer-left span {
+  color: #fff;
+  font-family: "SignPainter";
+  font-size: 34px;
+  padding-top: 10px;
+}
+
+ul.footer-right {
+  display: flex;
+  list-style: none;
+  column-gap: 50px;
+  margin: 0;
+}
+
+.footer-right a {
+  text-decoration: none;
+  color: #fff;
+}

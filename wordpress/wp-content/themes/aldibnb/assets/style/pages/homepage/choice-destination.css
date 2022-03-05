@@ -1,0 +1,92 @@
+.choice-destination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px 0;
+}
+
+.choice-destination > .title {
+  font-family: "SignPainter";
+  font-size: 40px;
+  color: #353c6f;
+}
+
+.choice-destination > .carousel {
+  display: flex;
+}
+
+.choice-destination > .carousel > .arrow {
+  height: 540px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-destination .carousel-wrapper {
+  height: 540px;
+  overflow: hidden;
+  display: flex;
+  width: 1260px;
+}
+
+.carousel-wrapper > .carousel-contain {
+  display: flex;
+  column-gap: 15px;
+  transition: all 1s ease-in-out;
+  /* transform: translateX(-50.3%); */
+}
+
+.choice-destination .carousel-part {
+  height: 540px;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #353c6f;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.choice-destination .carousel-part > img {
+  height: 270px;
+  min-width: 100%;
+  max-width: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.choice-destination .carousel-part > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-destination .carousel-part span {
+  text-align: center;
+  color: #fff;
+}
+
+.choice-destination .carousel-part span:first-of-type {
+  font-family: "SignPainter";
+  font-size: 40px;
+}
+
+.choice-destination .carousel-part span:last-of-type {
+  font-family: "Montserrat";
+  font-weight: 300;
+  padding: 0 25px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .choice-destination .carousel-wrapper {
+    width: 835px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .choice-destination .carousel-wrapper {
+    width: 410px;
+  }
+}

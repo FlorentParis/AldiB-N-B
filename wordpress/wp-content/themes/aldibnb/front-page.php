@@ -1,5 +1,57 @@
 <?php get_header(); ?>
 
+<?php
+$locations = [
+    [
+        "titre" => "Appartement en Seine et Marne",
+        "photo" => "wp-content/themes/aldibnb/assets/img/Appart3.png",
+        "pieces" => 4,
+        "chambres" => 2
+    ],
+    [
+        "titre" => "Appartement à paris, 11e arrondissement",
+        "photo" => "wp-content/themes/aldibnb/assets/img/Appart5.png",
+        "pieces" => 3,
+        "chambres" => 1
+    ]
+]
+?>
+
+<?php
+$cities = [
+    [
+        "name" => "Paris",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Paris1.png",
+        "desc" => "Découvrez ou re-découvrez Paris et ses nombreux monuments à visiter en toutes saisons."
+    ],
+    [
+        "name" => "Lille",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Lille.png",
+        "desc" => "Seul ou à plusieurs, venez goûter aux délices culinaires de Lille. Saveur et gourmandise garanties !"
+    ],
+    [
+        "name" => "Bordeaux",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Bordeaux1.png",
+        "desc" => "De printemps ou d’hiver, De longues et agréables ballades vous attendent à Bordeaux."
+    ],
+    [
+        "name" => "Marseille",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Marseille1.png",
+        "desc" => "Venez visiter le vieux port de Marseille. Ses habitants sauront vous accueillir à bras ouverts."
+    ],
+    [
+        "name" => "Lyon",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Lyon.png",
+        "desc" => "Besoin de retrouver du calme et de vous ressourcer ? Lyon est la destination parfaite pour vous."
+    ],
+    [
+        "name" => "Saint-Malo",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Saint-Malo.png",
+        "desc" => "Venez vous ressourcer et profiter de l’air frais de Saint-Malo, ville pleine d’histoire."
+    ]
+]
+?>
+
 <div class="hero">
     <div class="container-pic">
     </div>
@@ -29,9 +81,47 @@
 <div class="popular-rentals">
     <span class="title">Les destinations/locations les plus populaires</span>
     <div class="container-popular-rentals">
-        
+        <?php foreach($locations as $loc) { ?>
+            <div class="rental-case">
+                <div class="rental-pic" style="background-image: url(<?= $loc['photo'] ?>)">
+                    <img src="wp-content/themes/aldibnb/assets/icons/heart.svg" />
+                </div>
+                <div class="rental-infos">
+                    <?= $loc["pieces"] ?> pièces ~ <?= $loc["chambres"] ?> chambres
+                </div>
+                <div class="rental-title"><?= $loc["titre"] ?></div>
+            </div>
+        <?php } ?>
     </div>
     <button>En voir plus</button>
+</div>
+<div class="surprise-destination">
+    <p>Laissez-vous surprendre par notre destination mystère sélectionnée rien que pour vous.</p>
+    <button>Surprenez-moi !</button>
+</div>
+<div class="choice-destination">
+    <span class="title">Choisissez la ville que vous souhaitez visiter</span>
+    <div class="carousel">
+        <div class="arrow">
+            <img src="wp-content/themes/aldibnb/assets/icons/arrow-l.png" />
+        </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-contain">
+                <?php foreach($cities as $city): ?>
+                    <div class="carousel-part">
+                        <img src="<?= $city['pic'] ?>" />
+                        <div>
+                            <span><?= $city["name"] ?></span>
+                            <span><?= $city["desc"] ?></span>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="arrow">
+            <img src="wp-content/themes/aldibnb/assets/icons/arrow-r.png" />
+        </div>
+    </div>
 </div>
 
 <?php get_footer(); ?>

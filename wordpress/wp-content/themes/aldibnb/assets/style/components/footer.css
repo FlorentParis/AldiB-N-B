@@ -34,9 +34,26 @@ ul.footer-right {
   list-style: none;
   column-gap: 50px;
   margin: 0;
+  padding: 0;
 }
 
 .footer-right a {
   text-decoration: none;
   color: #fff;
+}
+
+@media only screen and (max-width: 920px) {
+  footer {
+    height: auto;
+    padding: 30px 0;
+  }
+  .footer-container {
+    flex-direction: column;
+  }
+  ul.footer-right {
+    flex-direction: column;
+    padding-top: 30px;
+    row-gap: 20px;
+    text-align: center;
+  }
 }

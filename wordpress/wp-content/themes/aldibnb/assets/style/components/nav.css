@@ -7,16 +7,22 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 50;
+  transition: all 1s;
 }
 
 .nav-container {
   width: 100%;
+  height: 100%;
   max-width: 1440px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   margin: 0 90px;
+}
+
+.nav-container img {
+  height: 70%;
 }
 
 #burger-content {
@@ -34,6 +40,7 @@ header {
   height: 2px;
   background-color: #fff;
   display: block;
+  transition: all 1s;
 }
 
 @media only screen and (max-width: 690px) {

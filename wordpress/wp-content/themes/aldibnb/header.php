@@ -7,9 +7,9 @@
     <?php wp_head(); ?>
 </head>
 <body>
-    <header>
+    <header id="navbar">
         <div class="nav-container">
-            <img src="wp-content/themes/aldibnb/assets/img/LogoAldiBnB.png" style="height: 96px" />
+            <img src="wp-content/themes/aldibnb/assets/img/LogoAldiBnB.png"/>
             <div id="burger-content">
                 <span></span>
                 <span></span>

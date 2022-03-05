@@ -1,0 +1,154 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero > .container-pic {
+  background-image: url("../../../img/Appart1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -80px;
+  z-index: -5;
+}
+
+.hero > .container-destination-bar {
+  position: absolute;
+  bottom: 50px;
+}
+
+.container-destination-bar > span {
+  font-size: 40px;
+  color: #fff;
+  font-family: "SignPainter";
+}
+
+.container-destination-bar > .destination-bar {
+  background-color: #fff;
+  display: flex;
+  border-radius: 6px;
+  height: 70px;
+  border: 1px solid #484f83;
+}
+
+.destination-bar > .case {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  margin: 12px 0;
+  padding: 0 20px;
+}
+
+.destination-bar > .case:not(.case:last-of-type) {
+  border-right: 1px solid #484f83;
+}
+
+.destination-bar > .case:first-of-type {
+  width: 300px;
+}
+
+.case > label {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.case > input {
+  border: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #484f83;
+  font-family: "Avenir", sans-serif;
+  font-weight: 550;
+  height: 20px;
+  font-size: 18px;
+  outline: none;
+}
+
+.case > input::placeholder {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #484f83;
+  font-family: "Avenir", sans-serif;
+  font-weight: 550;
+}
+
+.case:first-of-type > input {
+  border-radius: 20px;
+}
+
+.destination-bar > button {
+  background-color: #353c6f;
+  border: none;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  width: 200px;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-top: -1px;
+  margin-right: -1px;
+  height: 70px;
+  font-family: "Avenir";
+  font-weight: 850;
+  padding: 0;
+  min-width: 50px;
+}
+
+@media only screen and (max-width: 1124px) {
+  .container-destination-bar {
+    width: 100%;
+    padding: 0 40px;
+  }
+  .container-destination-bar > .destination-bar {
+    width: 100%;
+  }
+  .destination-bar > .case {
+    width: 20%;
+  }
+  .destination-bar > button {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container-destination-bar > .destination-bar {
+    height: 50px;
+    align-items: center;
+  }
+  .case > label {
+    font-size: 12px;
+  }
+  .case > input {
+    font-size: 14px;
+  }
+  .case > input::placeholder {
+    font-size: 14px;
+  }
+  .destination-bar > button {
+    height: 50px;
+  }
+}
+@media only screen and (max-width: 690px) {
+  .container-destination-bar > .destination-bar > .case:first-of-type {
+    width: 100%;
+    border-right: none;
+  }
+  .case > label {
+    display: none;
+  }
+  .destination-bar > .case:not(.case:first-of-type) {
+    display: none;
+  }
+  .container-destination-bar > .destination-bar > button {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

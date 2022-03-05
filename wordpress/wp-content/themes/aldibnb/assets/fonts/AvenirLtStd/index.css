@@ -1,0 +1,30 @@
+@font-face {
+  font-family: Avenir;
+  src: url(./Avenir\ LT\ Std\ 35\ Light.otf) format("opentype");
+  font-weight: 350;
+}
+@font-face {
+  font-family: Avenir;
+  src: url(./Avenir\ LT\ Std\ 45\ Book.otf) format("opentype");
+  font-weight: 450;
+}
+@font-face {
+  font-family: Avenir;
+  src: url(./Avenir\ LT\ Std\ 55\ Roman.otf) format("opentype");
+  font-weight: 550;
+}
+@font-face {
+  font-family: Avenir;
+  src: url(./Avenir\ LT\ Std\ 65\ Medium.otf) format("opentype");
+  font-weight: 650;
+}
+@font-face {
+  font-family: Avenir;
+  src: url(./Avenir\ LT\ Std\ 85\ Heavy.otf) format("opentype");
+  font-weight: 850;
+}
+@font-face {
+  font-family: Avenir;
+  src: url(./Avenir\ LT\ Std\ 95\ Black.otf) format("opentype");
+  font-weight: 950;
+}

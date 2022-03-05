@@ -1,62 +1,127 @@
 <?php get_header(); ?>
 
-<?php if (have_posts()) : ?>
-    <div class="card-group">
-        <?php while (have_posts()) : ?>
+<?php
+$locations = [
+    [
+        "titre" => "Appartement en Seine et Marne",
+        "photo" => "wp-content/themes/aldibnb/assets/img/Appart3.png",
+        "pieces" => 4,
+        "chambres" => 2
+    ],
+    [
+        "titre" => "Appartement à paris, 11e arrondissement",
+        "photo" => "wp-content/themes/aldibnb/assets/img/Appart5.png",
+        "pieces" => 3,
+        "chambres" => 1
+    ]
+]
+?>
 
-            <?php the_post(); ?>
+<?php
+$cities = [
+    [
+        "name" => "Paris",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Paris1.png",
+        "desc" => "Découvrez ou re-découvrez Paris et ses nombreux monuments à visiter en toutes saisons."
+    ],
+    [
+        "name" => "Lille",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Lille.png",
+        "desc" => "Seul ou à plusieurs, venez goûter aux délices culinaires de Lille. Saveur et gourmandise garanties !"
+    ],
+    [
+        "name" => "Bordeaux",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Bordeaux1.png",
+        "desc" => "De printemps ou d’hiver, De longues et agréables ballades vous attendent à Bordeaux."
+    ],
+    [
+        "name" => "Marseille",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Marseille1.png",
+        "desc" => "Venez visiter le vieux port de Marseille. Ses habitants sauront vous accueillir à bras ouverts."
+    ],
+    [
+        "name" => "Lyon",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Lyon.png",
+        "desc" => "Besoin de retrouver du calme et de vous ressourcer ? Lyon est la destination parfaite pour vous."
+    ],
+    [
+        "name" => "Saint-Malo",
+        "pic" => "wp-content/themes/aldibnb/assets/img/Saint-Malo.png",
+        "desc" => "Venez vous ressourcer et profiter de l’air frais de Saint-Malo, ville pleine d’histoire."
+    ]
+]
+?>
 
-            <div>
-                <h2 class="card-title"><?php the_title(); ?></h2>
-
-                <!-- formulaire de connexion avec redirection a la page contenant les articles -->
-                <h3>Sign in</h3>
-                <form action="<?= home_url('wp-login.php');?>" method="post">
-                    <div class="mb-3">
-                        <label for="InputEmail1" class="form-label">Email or Username</label>
-                        <input type="text" class="form-control" id="InputEmail1" aria-describedby="emailHelp" name="log">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="InputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="InputPassword1" name="pwd">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="Check1" name="rememberme">
-                        <label class="form-check-label" for="Check1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary" name="">Submit</button>
-                    <input type="hidden" name="redirect_to" value="http://localhost:5555/articles">
-                </form>
-
-                <!-- creer utilisateur -->
-                <h3>Sign up</h3>
-                <form action="" method="post">
-                    <div class="mb-3">
-                        <label for="InputEmail2" class="form-label">Email address</label>
-                        <input type="text" class="form-control" id="InputEmail2" aria-describedby="emailHelp" name="log">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="InputPassword2" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="InputPassword2" name="pwd">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="admin" name="admin">
-                        <label class="form-check-label" for="admin">Admin</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick=<?= createUser()?>>Submit</button>
-                </form>
-
-            </div>
-
-        <?php endwhile; ?>
+<div class="hero">
+    <div class="container-pic">
     </div>
-
-<?php endif; ?>
+    <div class="container-destination-bar">
+        <span>Votre style, votre destination.</span>
+        <form class="destination-bar">
+            <div class="case">
+                <label>Destination</label>
+                <input type="text" placeholder="Où voulez-vous aller ?" />
+            </div>
+            <div class="case">
+                <label>Départ</label>
+                <input type="date" placeholder="De quand ?" />
+            </div>
+            <div class="case">
+                <label>Arrivée</label>
+                <input type="date" placeholder="À quand ?" />
+            </div>
+            <div class="case">
+                <label>Voyageurs</label>
+                <input type="number" placeholder="Avec qui ?" />
+            </div>
+            <button><img src="wp-content/themes/aldibnb/assets/icons/search.svg" /></button>
+        </form>
+    </div>
+</div>
+<div class="popular-rentals">
+    <span class="title">Les destinations/locations les plus populaires</span>
+    <div class="container-popular-rentals">
+        <?php foreach($locations as $loc) { ?>
+            <div class="rental-case">
+                <div class="rental-pic" style="background-image: url(<?= $loc['photo'] ?>)">
+                    <img src="wp-content/themes/aldibnb/assets/icons/heart.svg" />
+                </div>
+                <div class="rental-infos">
+                    <?= $loc["pieces"] ?> pièces ~ <?= $loc["chambres"] ?> chambres
+                </div>
+                <div class="rental-title"><?= $loc["titre"] ?></div>
+            </div>
+        <?php } ?>
+    </div>
+    <button>En voir plus</button>
+</div>
+<div class="surprise-destination">
+    <p>Laissez-vous surprendre par notre destination mystère sélectionnée rien que pour vous.</p>
+    <button>Surprenez-moi !</button>
+</div>
+<div class="choice-destination">
+    <span class="title">Choisissez la ville que vous souhaitez visiter</span>
+    <div class="carousel">
+        <div class="arrow">
+            <img src="wp-content/themes/aldibnb/assets/icons/arrow-l.png" />
+        </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-contain">
+                <?php foreach($cities as $city): ?>
+                    <div class="carousel-part">
+                        <img src="<?= $city['pic'] ?>" />
+                        <div>
+                            <span><?= $city["name"] ?></span>
+                            <span><?= $city["desc"] ?></span>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="arrow">
+            <img src="wp-content/themes/aldibnb/assets/icons/arrow-r.png" />
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>

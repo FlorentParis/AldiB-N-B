@@ -11,6 +11,7 @@ function wphetic_bootstrap()
     wp_enqueue_script('bootstrap_js',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', 
     [], false, true);
+    wp_enqueue_style('test', get_template_directory_uri() . '/assets/style/main.css', array(), '1.0', 'all');
 }
 
 add_filter('nav_menu_css_class', function ($classes) {

@@ -6,12 +6,23 @@ function wphetic_theme_support() {
 
 function wphetic_bootstrap() 
 {
+    /* Bootstrap */
     wp_enqueue_style('bootstrap_css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css');
     wp_enqueue_script('bootstrap_js',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', 
     [], false, true);
-    wp_enqueue_style('test', get_template_directory_uri() . '/assets/style/main.css', array(), '1.0', 'all');
+
+    /* Perso Style */
+    wp_enqueue_style('style_perso', get_template_directory_uri() . '/assets/style/main.css', array(), '1.0', 'all');
+    /* Perso Script Components */
+    wp_enqueue_script('script_navbar',
+    get_template_directory_uri() . '/assets/script/components/navbar.js', 
+    [], false, true);
+    /* Perso Style Pages */
+    wp_enqueue_script('script_homepage',
+    get_template_directory_uri() . '/assets/script/pages/homepage.js', 
+    [], false, true);
 }
 
 add_filter('nav_menu_css_class', function ($classes) {

@@ -34,6 +34,7 @@ ul.footer-right {
   list-style: none;
   column-gap: 50px;
   margin: 0;
+  padding: 0;
 }
 
 .footer-right a {

@@ -1,6 +1,6 @@
 <h3>Formulaire création d'un post</h3>
 <form id="formulaire_post" method="post"
-      action ="<?= admin_url('admin_post.php');?>"
+      action ="http://localhost:5555/wp-admin/admin-post.php"
       enctype="multipart/form-data">
 
     <!-- TODO ajouter la liste des catégories

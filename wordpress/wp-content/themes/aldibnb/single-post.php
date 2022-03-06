@@ -10,7 +10,7 @@
                 <p class="card-text">Prix par nuit :  <?= get_post_meta(get_the_ID(), "post_price", true)?>€ </p>
                 <p class="card-text"><?php the_content(); ?></p>
                 <p class="card-text"><small class="text-muted">Ecrit le : <?php the_date(); ?></small></p>
-                <?php comments_template(); // Par ici les commentaires ?>
+                <?php comments_template(); ?>
             </div>
         </div>
     <?php endwhile; ?>

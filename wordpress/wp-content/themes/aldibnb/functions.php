@@ -76,13 +76,13 @@ function createUser()
 
 function createPost()
 {
-    if(current_user_can('event_rights')
-    && wp_verify_nonce($_POST['upload_post_nonce'], 'upload_post')){
+    if(/* current_user_can('event_rights')
+    &&  */wp_verify_nonce($_POST['upload_post_nonce'], 'upload_post')){
         $post_args =array(
             'post_content' => $_POST["message_post"],
             'post_title' => $_POST["post_title"],
-            'post_type'=> 'custom_post_type',
-            'post_status' => 'pending',
+            'post_type'=> 'post',
+            'post_status' => 'publish',
             'post_author' => get_current_user_id(),
             'comment_status'=> 'closed',
             /*TODO rajouter la catégorie
@@ -91,13 +91,14 @@ function createPost()
             ],
             */
             'meta_input'=>array(
-                'post_price' => $_POST["post_title"]
+                'post_price' => $_POST["post_price"]
             )
         );
         //Insérer un post en base de données
-        $post_id = wp_insert_user($post_args);
+        $post_id = wp_insert_post($post_args);
         //Traitement d'upload d'image - Si tout a marché -> rattache l'image au post
         $attachment_id = media_handle_upload('post_image', $post_id);
+        var_dump($attachment_id);
         if(is_wp_error($attachment_id)){
             wp_redirect($_POST['_wp_http_referer']. '.status=error'); //redirect objet d'erreur
         }else{
@@ -108,7 +109,7 @@ function createPost()
         wp_redirect($_POST['_wp_http_referer'].'?status=no_once');
     }
 };
-add_action('admin_post_upload', 'createPost');
+add_action('admin_post_upload_post', 'createPost');
 
 function wphetic_register_style_taxonomy(){
     
@@ -159,7 +160,6 @@ function wphetic_register_event_cpt(){
     register_post_type('event', $args);
 
 }
-
 
 add_action('after_setup_theme','wphetic_theme_support');
 
@@ -228,3 +228,5 @@ add_action('switch_theme', function() {
     $admin->remove_cap('utilisateur'); //Suppression des droits de l'utilisateur
     remove_role('utilisateur'); //Suppression du droit 
 });
+
+

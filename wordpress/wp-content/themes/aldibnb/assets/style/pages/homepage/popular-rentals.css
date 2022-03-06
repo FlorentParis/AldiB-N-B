@@ -1,5 +1,5 @@
 .popular-rentals {
-  padding: 60px 0;
+  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,15 +39,20 @@
 }
 
 .rental-case > .rental-infos {
-  font-family: "Monserrat";
-  font-weight: 300;
   text-align: center;
+  padding-top: 5px;
+}
+
+.rental-infos > span {
+  font-family: "Montserrat";
+  font-weight: 400;
 }
 
 .rental-case > .rental-title {
   font-family: "Avenir";
   font-size: 22px;
   font-weight: 850;
+  text-transform: uppercase;
   color: #353c6f;
   text-align: center;
 }
@@ -70,6 +75,12 @@
   .container-popular-rentals {
     flex-direction: column;
   }
+  .container-popular-rentals > .rental-case {
+    padding-bottom: 20px;
+  }
+  .popular-rentals > button {
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -91,6 +102,10 @@
   }
 
   .rental-case > .rental-title {
+    font-size: 18px;
+  }
+  .popular-rentals > button {
+    height: 50px;
     font-size: 18px;
   }
 }

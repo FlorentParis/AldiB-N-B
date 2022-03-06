@@ -9,6 +9,7 @@
   font-family: "SignPainter";
   font-size: 40px;
   color: #353c6f;
+  padding-bottom: 30px;
 }
 
 .choice-destination > .carousel {
@@ -71,12 +72,15 @@
 .choice-destination .carousel-part span:first-of-type {
   font-family: "SignPainter";
   font-size: 40px;
+  padding-bottom: 10px;
 }
 
 .choice-destination .carousel-part span:last-of-type {
   font-family: "Montserrat";
   font-weight: 300;
   padding: 0 25px;
+  text-transform: uppercase;
+  line-height: 28px;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -94,6 +98,7 @@
 @media only screen and (max-width: 600px) {
   .choice-destination > .title {
     text-align: center;
+    font-size: 30px;
   }
   .choice-destination > .carousel > .arrow {
     width: 35px;

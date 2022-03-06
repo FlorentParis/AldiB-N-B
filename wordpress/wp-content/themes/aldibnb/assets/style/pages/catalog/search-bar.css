@@ -1,0 +1,85 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  top: -35px;
+}
+
+.search-bar > form {
+  background-color: #fff;
+  display: flex;
+  border-radius: 6px;
+  height: 70px;
+  width: 100%;
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  max-width: 1440px;
+  padding: 12px 0;
+  position: relative;
+}
+
+.search-bar > form .search-case {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 0 20px;
+}
+
+.search-bar > form .search-case:first-of-type {
+  width: 300px;
+}
+
+.search-bar > form .search-case:last-of-type {
+  width: 269px;
+}
+
+.search-bar > form .search-case:not(form .search-case:first-of-type) {
+  border-left: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.search-bar > form label {
+  font-family: "Montserrat";
+  font-weight: 400;
+  padding-bottom: 2px;
+}
+
+.search-bar > form input {
+  border: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #484f83;
+  font-family: "Avenir", sans-serif;
+  font-weight: 850;
+  height: 20px;
+  font-size: 18px;
+  outline: none;
+}
+
+.search-bar > form input::placeholder {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #484f83;
+  font-family: "Avenir", sans-serif;
+  font-weight: 850;
+}
+
+.search-bar form button {
+  background-color: #353c6f;
+  border: none;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  font-size: 22px;
+  text-transform: uppercase;
+  height: 70px;
+  font-family: "Avenir";
+  font-weight: 850;
+  padding: 0;
+  width: 70px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+}
+
+.search-bar form button > img {
+  height: 32px;
+}

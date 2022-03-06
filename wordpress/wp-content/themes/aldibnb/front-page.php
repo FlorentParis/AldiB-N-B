@@ -87,7 +87,7 @@ $cities = [
                     <img src="wp-content/themes/aldibnb/assets/icons/heart.svg" />
                 </div>
                 <div class="rental-infos">
-                    <?= $loc["pieces"] ?> pièces ~ <?= $loc["chambres"] ?> chambres
+                    <span><?= $loc["pieces"] ?> pièces ~ <?= $loc["chambres"] ?> chambres</span>
                 </div>
                 <div class="rental-title"><?= $loc["titre"] ?></div>
             </div>

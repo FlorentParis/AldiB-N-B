@@ -22,6 +22,9 @@
 .hero > .container-destination-bar {
   position: absolute;
   bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-destination-bar > span {
@@ -35,7 +38,7 @@
   display: flex;
   border-radius: 6px;
   height: 70px;
-  border: 1px solid #484f83;
+  border: 1px solid rgba(72, 79, 131, 0.3);
 }
 
 .destination-bar > .case {
@@ -47,7 +50,7 @@
 }
 
 .destination-bar > .case:not(.case:last-of-type) {
-  border-right: 1px solid #484f83;
+  border-right: 1px solid rgba(72, 79, 131, 0.3);
 }
 
 .destination-bar > .case:first-of-type {
@@ -57,6 +60,7 @@
 .case > label {
   font-family: "Montserrat";
   font-weight: 400;
+  padding-bottom: 2px;
 }
 
 .case > input {
@@ -65,7 +69,7 @@
   font-size: 18px;
   color: #484f83;
   font-family: "Avenir", sans-serif;
-  font-weight: 550;
+  font-weight: 850;
   height: 20px;
   font-size: 18px;
   outline: none;
@@ -76,7 +80,7 @@
   font-size: 18px;
   color: #484f83;
   font-family: "Avenir", sans-serif;
-  font-weight: 550;
+  font-weight: 850;
 }
 
 .case:first-of-type > input {
@@ -150,5 +154,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container-destination-bar > span {
+    font-size: 30px;
+    text-align: center;
   }
 }

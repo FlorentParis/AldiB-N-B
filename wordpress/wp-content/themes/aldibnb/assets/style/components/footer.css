@@ -40,6 +40,8 @@ ul.footer-right {
 .footer-right a {
   text-decoration: none;
   color: #fff;
+  font-family: "Montserrat";
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 920px) {

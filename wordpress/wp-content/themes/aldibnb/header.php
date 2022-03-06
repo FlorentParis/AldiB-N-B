@@ -9,7 +9,7 @@
 <body>
     <header id="navbar">
         <div class="nav-container">
-            <img src="wp-content/themes/aldibnb/assets/img/LogoAldiBnB.png"/>
+            <img src="/wp-content/themes/aldibnb/assets/img/LogoAldiBnB.png"/>
             <div id="burger-content">
                 <span></span>
                 <span></span>

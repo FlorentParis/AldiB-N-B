@@ -1,7 +1,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-left">
-                <img src="wp-content/themes/aldibnb/assets/img/LogoBlancAldiBnB.png" />
+                <img src="/wp-content/themes/aldibnb/assets/img/LogoBlancAldiBnB.png" />
                 <span>AldiB'n'B</span>
             </div>
             <ul class="footer-right">
@@ -10,7 +10,7 @@
                 <li><a href="">Gestion des cookies</a></li>
             </ul>
         </div>
-    </footer>  
+    </footer>
     <?php wp_footer(); ?>
 </body>
 </html>

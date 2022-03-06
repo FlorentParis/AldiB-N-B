@@ -4,8 +4,10 @@
 @import "../fonts/SignPainter/index.css";
 
 /* Components */
-@import "./components/nav.css";
+@import "./components/header.css";
+@import "./components/header-catalog.css";
 @import "./components/footer.css";
 
 /* Pages */
 @import "./pages/homepage/index.css";
+@import "./pages/catalog/index.css";

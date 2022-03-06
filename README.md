@@ -4,11 +4,11 @@ AldiB'n'B is a school project in wordpress.
 
 ## Contributors 
 
-🐈 Giselle MATIAS
-🍫 Johanna MACHADO
-🏀 Maxence NHO
-🔫 Benjamin SYMCHOWICZ
-🐱‍👤 Florent PARIS
+🐈 Giselle MATIAS  
+🍫 Johanna MACHADO  
+🏀 Maxence NHO  
+🔫 Benjamin SYMCHOWICZ  
+🐱‍👤 Florent PARIS  
 
 ## Installation
 

@@ -74,7 +74,7 @@ function createUser()
     ));
 };
 
-function createPost()
+ function createPost()
 {
     if(/* current_user_can('event_rights')
     &&  */wp_verify_nonce($_POST['upload_post_nonce'], 'upload_post')){
@@ -114,21 +114,26 @@ add_action('admin_post_upload_post', 'createPost');
 function wphetic_register_style_taxonomy(){
     
     $labels = [
-        'name' => 'Styles',
-        'singular_name' => 'Style',
-        'search_items' => 'Rechercher style',
-        'all_items' => 'Tous les styles'
+        'name' => 'logement',
+        'singular_name' => 'logement',
+        'search_items' => 'Rechercher logement',
+        'all_items' => 'Tous les types de logement',
+        'edit_item' => 'Editer le logement',
+        'update_item' => 'Mettre a jour type le logement',
+        'add_new_item' => 'Ajouter un nouveau type logement',
+        'new_item_name' => 'Ajouter un nouveau type logement',
+        'menu_name' => 'Logements'
     ];
 
     $args = [
         'labels' => $labels,
         'public' => true,
-        'hierarchical' => true,
         'show_in_rest' => true,
-        'show_admin_column' => true
+        'hierarchical' => true,
+        'show_admin_column' => true,
     ];
 
-    register_taxonomy('style', ['post'], $args);
+    register_taxonomy('logement', 'post', $args);
 
 }
 

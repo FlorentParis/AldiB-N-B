@@ -97,5 +97,10 @@ $rentals = [
     <?php endforeach; ?>
     <button>En voir plus</button>
 </div>
+<div class="surprise-destination" style="margin-bottom: 30px;">
+    <p>Vous n'avez pas trouvé votre appartement/location/destination idéale ? </br>
+        Pas de soucis, nous avons LA solution/destination qu'il vous faut !</p>
+    <button>Surprenez-moi !</button>
+</div>
 
 <?php get_footer(); ?>

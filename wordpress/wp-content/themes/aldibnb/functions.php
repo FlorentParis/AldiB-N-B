@@ -236,6 +236,6 @@ add_action('switch_theme', function() {
 });
 
 
-require_once('options/BannerMessage.php');
+/* require_once('options/BannerMessage.php');
 
-BannerMessage::register();
+BannerMessage::register(); */

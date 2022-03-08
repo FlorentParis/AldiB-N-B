@@ -1,0 +1,63 @@
+.pres-rental-infos {
+  display: flex;
+  justify-content: center;
+  padding: 60px 90px 30px 90px;
+}
+
+.pres-infos-content {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pres-infos-content > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.pres-rental-infos .title {
+  font-family: "Avenir";
+  font-weight: 850;
+  text-transform: uppercase;
+  color: #353c6f;
+  font-size: 22px;
+}
+
+.pres-rental-infos .tags {
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+.pres-rental-infos .note {
+  font-size: 14px;
+  font-family: "Montserrat";
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+
+.pres-rental-infos .price {
+  font-family: "Avenir";
+  font-weight: 550;
+  color: #353c6f;
+  font-size: 22px;
+  display: flex;
+  justify-content: end;
+}
+
+.pres-rental-infos .note > span:first-of-type {
+  padding: 0 5px;
+}
+
+.pres-rental-infos .note > span:last-of-type {
+  text-decoration: underline;
+}
+
+.pres-rental-infos .note > span:first-of-type,
+.pres-rental-infos .price > span {
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+  font-size: 22px;
+}

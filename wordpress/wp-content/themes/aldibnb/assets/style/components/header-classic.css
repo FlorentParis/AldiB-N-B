@@ -1,0 +1,46 @@
+header.header-classic {
+  height: 135px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  transition: all 1s;
+  background-color: #484f83;
+}
+
+header.header-classic .nav-container {
+  width: 100%;
+  height: 70px;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 90px;
+  color: #fff;
+}
+
+header.header-classic .nav-left {
+  display: flex;
+  align-items: center;
+}
+
+header.header-classic .nav-left img {
+  height: 100%;
+}
+
+header.header-classic .nav-left span {
+  padding-left: 10px;
+  font-family: "SignPainter";
+  font-size: 34px;
+}
+
+header.header-classic .nav-right {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+  column-gap: 50px;
+  font-family: "Montserrat";
+  font-weight: 300;
+}

@@ -5,9 +5,11 @@
 
 /* Components */
 @import "./components/header.css";
+@import "./components/header-classic.css";
 @import "./components/header-catalog.css";
 @import "./components/footer.css";
 
 /* Pages */
 @import "./pages/homepage/index.css";
 @import "./pages/catalog/index.css";
+@import "./pages/single-post/index.css";

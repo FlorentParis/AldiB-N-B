@@ -131,7 +131,7 @@ function wphetic_register_style_taxonomy(){
         'public' => true,
         'show_in_rest' => true,
         'hierarchical' => true,
-        'show_admin_column' => true,
+        'show_admin_column' => true
     ];
 
     register_taxonomy('logement', 'post', $args);
@@ -158,7 +158,7 @@ function wphetic_register_event_cpt(){
         'capabilities' => array(
             'edit_post' => 'event_rights',
             'read_post' => 'event_rights',
-            'delte_post' => 'event_rights',
+            'delete_post' => 'event_rights',
             //On définit quel droit permet de faire tel action
         ),
     ];

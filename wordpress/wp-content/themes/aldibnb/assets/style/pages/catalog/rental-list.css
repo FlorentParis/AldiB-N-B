@@ -1,4 +1,130 @@
 .rentals-list {
-  height: 100vh;
-  background-color: gray;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+  padding: 0 90px;
+}
+
+.rentals-list > .single-rental {
+  display: grid;
+  width: 100%;
+  max-width: 1440px;
+  grid-template-columns: 300px 1fr 250px;
+  grid-template-rows: 300px;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.rentals-list > .single-rental:first-of-type {
+  padding-top: 20px;
+}
+
+.single-rental > .photos {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+
+.single-rental > .photos > img:first-of-type {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.single-rental > .photos > img:last-of-type {
+  height: 100%;
+  max-width: none;
+}
+
+.single-rental > .rental-desc {
+  padding-left: 15px;
+  padding-right: 70px;
+}
+
+.rental-desc > div {
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+.rental-desc > span {
+  font-family: "Avenir";
+  font-weight: 850;
+  font-size: 22px;
+  color: #353c6f;
+}
+
+.rental-desc > p {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(72, 79, 131, 0.3);
+  font-family: "Montserrat";
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.single-rental > .rental-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rental-infos .rental-infos-comments,
+.rental-infos .rental-infos-price {
+  display: flex;
+  align-items: center;
+}
+
+.rental-infos .rental-infos-comments > span:first-of-type,
+.rental-infos .rental-infos-price > span:first-of-type {
+  display: flex;
+  align-items: center;
+  color: #353c6f;
+  font-family: "Avenir";
+  font-weight: 850;
+  font-size: 22px;
+  padding-right: 15px;
+}
+
+.rental-infos .rental-infos-comments > span:first-of-type img {
+  padding-right: 10px;
+}
+
+.rental-infos .rental-infos-comments > span:last-of-type,
+.rental-infos .rental-infos-price > span:last-of-type {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.rental-infos > button {
+  height: 50px;
+  font-size: 18px;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-color: #353c6f;
+  border: none;
+}
+
+.rentals-list > button {
+  margin: 40px 0;
+  width: 300px;
+  height: 70px;
+  font-size: 22px;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-color: #353c6f;
+  border: none;
 }

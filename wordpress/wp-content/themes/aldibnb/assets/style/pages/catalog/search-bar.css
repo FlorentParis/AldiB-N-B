@@ -4,6 +4,7 @@
   flex-direction: column;
   position: relative;
   top: -35px;
+  padding: 0 90px;
 }
 
 .search-bar > form {
@@ -82,4 +83,10 @@
 
 .search-bar form button > img {
   height: 32px;
+}
+
+@media only screen and (max-width: 1500px) {
+  .search-bar > form .search-case {
+    width: 165px;
+  }
 }

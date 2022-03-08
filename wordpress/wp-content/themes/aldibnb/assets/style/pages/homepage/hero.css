@@ -104,6 +104,35 @@
   min-width: 50px;
 }
 
+.tags-used {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1440px;
+  column-gap: 12px;
+}
+
+.tags-used > .tag {
+  width: 195px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  margin-top: 10px;
+  border-radius: 5px;
+  position: relative;
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.tag > img {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1124px) {
   .container-destination-bar {
     width: 100%;

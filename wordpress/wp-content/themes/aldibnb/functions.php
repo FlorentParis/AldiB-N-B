@@ -235,7 +235,6 @@ add_action('switch_theme', function() {
     remove_role('utilisateur'); //Suppression du droit 
 });
 
-/* 
-require_once('options/BannerMessage.php');
+/* require_once('options/BannerMessage.php');
 
 BannerMessage::register(); */

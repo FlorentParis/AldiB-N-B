@@ -20,3 +20,12 @@
             </ul>
         </div>
     </header>
+    <?php 
+    if(!empty(get_option('agence_horaire'))){
+        ?>
+        <div class="alert alert-danger" role="alert">
+        <?= get_option('agence_horaire'); ?>
+        </div>
+        <?php
+    };
+    

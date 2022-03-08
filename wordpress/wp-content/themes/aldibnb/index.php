@@ -25,7 +25,7 @@
 
                 <?php if (get_post_meta(get_the_ID(), 'wpheticSponso', true)) : ?>
                     <div class="alert alert-primary" role="alert">
-                        Contenu Soponso
+                        Contenu Sponso
                     </div>
                 <?php endif; ?>
 

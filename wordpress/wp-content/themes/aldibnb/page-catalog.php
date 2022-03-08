@@ -67,7 +67,8 @@ $rentals = [
     </div>
 </div>
 <div class="rentals-list">
-<?php /*$loop = new WP_Query( array( 'post_type' => 'event', 'posts_per_page' => '10' ) ); ?>
+<?php /*
+$loop = new WP_Query( array( 'post_type' => 'event', 'posts_per_page' => '10' ) ); ?>
 <?php if ($loop->have_posts()) : ?>
 <div class="card-group">
     <?php while ($loop->have_posts()) : ?>
@@ -93,7 +94,12 @@ $rentals = [
             </div>
         </div>
 
-    <?php endwhile; */?>
+        <?php endwhile; 
+    </div>
+
+    <?= wpheticPaginate() ?>
+
+<?php endif; ?>*/?>
 
     <?php foreach($rentals as $rental): ?>
         <div class="single-rental">
@@ -124,11 +130,6 @@ $rentals = [
         </div>
     <?php endforeach; ?>
     <button>En voir plus</button>
-</div>
-
-    <?= wpheticPaginate() ?>
-
-<?php endif; ?>
 
 </div>
 

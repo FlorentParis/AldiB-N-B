@@ -2,6 +2,7 @@
 function wphetic_theme_support() {
     add_theme_support('title-tag');
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'menus' );
 }
 
 function wphetic_bootstrap() 
@@ -130,7 +131,7 @@ function wphetic_register_style_taxonomy(){
         'public' => true,
         'show_in_rest' => true,
         'hierarchical' => true,
-        'show_admin_column' => true,
+        'show_admin_column' => true
     ];
 
     register_taxonomy('logement', 'post', $args);
@@ -157,7 +158,7 @@ function wphetic_register_event_cpt(){
         'capabilities' => array(
             'edit_post' => 'event_rights',
             'read_post' => 'event_rights',
-            'delte_post' => 'event_rights',
+            'delete_post' => 'event_rights',
             //On définit quel droit permet de faire tel action
         ),
     ];
@@ -186,7 +187,7 @@ add_action('init','wphetic_register_event_cpt');
 /*Ajout des droits 'manage_events' à l'utilisateur 'administrator'*/
 add_action('after_switch_theme', function(){
     $admin = get_role('administrator'); //Récupération du rôle 'administrator
-    $admin->add_cap('manage_events'); //Ajout des droits au rôle
+    $admin->add_cap('event_rights'); //Ajout des droits au rôle
 });
 
 /*Ajout du rôle Event Manager*/
@@ -230,8 +231,11 @@ add_action('after_switch_theme', function() {
 /*Nettoyer les droits donnés aux utilisateurs pour ne pas entacher les autres thèmes*/
 add_action('switch_theme', function() {
     $admin = get_role('administrator'); //Récupération du rôle 'administrator
-    $admin->remove_cap('utilisateur'); //Suppression des droits de l'utilisateur
+    $admin->remove_cap('event_rights'); //Suppression des droits de l'utilisateur
     remove_role('utilisateur'); //Suppression du droit 
 });
 
 
+require_once('options/BannerMessage.php');
+
+BannerMessage::register();

@@ -1,4 +1,6 @@
-<?php get_headers(); ?>
+<?php 
+    get_headers(); 
+?>
 
 <?php while (have_posts()) : the_post(); ?>
     <div class="card mb-3">

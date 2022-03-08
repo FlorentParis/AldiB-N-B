@@ -67,6 +67,40 @@ $rentals = [
     </div>
 </div>
 <div class="rentals-list">
+<?php /*
+$loop = new WP_Query( array( 'post_type' => 'event', 'posts_per_page' => '10' ) ); ?>
+<?php if ($loop->have_posts()) : ?>
+<div class="card-group">
+    <?php while ($loop->have_posts()) : ?>
+
+        <?php $loop->the_post(); ?>
+
+        <div class="card">
+            <img src="<?php the_post_thumbnail_url(); ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+
+                <?php if (get_post_meta(get_the_ID(), 'wpheticSponso', true)) : ?>
+                    <div class="alert alert-primary" role="alert">
+                        Contenu Sponso
+                    </div>
+                <?php endif; ?>
+
+                <h5 class="card-title"><?php the_title(); ?></h5>
+
+                <p><small> Style: <?= the_terms(get_the_ID(), 'style'); ?></small></p>
+                <p class="card-text"><?php the_excerpt(); ?></p>
+                <p class="card-text"><?php the_content(); ?></p>
+                <a href="<?php the_permalink(); ?>" class="btn btn-primary">Lire plus</a>
+            </div>
+        </div>
+
+        <?php endwhile; 
+    </div>
+
+    <?= wpheticPaginate() ?>
+
+<?php endif; ?>*/?>
+
     <?php foreach($rentals as $rental): ?>
         <div class="single-rental">
             <div class="photos">
@@ -96,6 +130,7 @@ $rentals = [
         </div>
     <?php endforeach; ?>
     <button>En voir plus</button>
+
 </div>
 <div class="surprise-destination" style="margin-bottom: 30px;">
     <p>Vous n'avez pas trouvé votre appartement/location/destination idéale ? </br>
@@ -104,3 +139,4 @@ $rentals = [
 </div>
 
 <?php get_footer(); ?>
+

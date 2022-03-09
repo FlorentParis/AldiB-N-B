@@ -40,7 +40,48 @@
                 </div>
             </div>
             <p>Cet appartement de 61 m2  vous propose une vue directe sur la mer depuis son balcon orienté ouest proposant ainsi de beaux couchés de soleil. L’appartement est équipé d’une salle de bain avec baignoire, d’une cuisine équipée ainsi que d’une place de parking qui vous est réservée. À 100 mètres de la mer et des commerces, vous pourrez profiter de Nice et ses longues balades.</p>
-            <div class="rental-advantage">
+            <div class="rental-advantages">
+                <span>Les points forts de cette destination/location</span>
+                <div>
+                    <div class="advantage">
+                        <div></div>
+                        <span>Balcon</span>
+                    </div>
+                    <div class="advantage">
+                        <div></div>
+                        <span>Vue sur la mer</span>
+                    </div>
+                    <div class="advantage">
+                        <div></div>
+                        <span>Proche des commerces</span>
+                    </div>
+                    <div class="advantage">
+                        <div></div>
+                        <span>Salle de bain avec baignoire</span>
+                    </div>
+                    <div class="advantage">
+                        <div></div>
+                        <span>Appartement neuf</span>
+                    </div>
+                    <div class="advantage">
+                        <div></div>
+                        <span>Ambiance/Déco zen</span>
+                    </div>
+                    <div class="advantage">
+                        <div></div>
+                        <span>Parking gratuit</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rental-comments">
+                <div>
+                    <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span>4,81</span></span>
+                    <span> • </span>
+                    <span>291 commentaires</span>
+                </div>
+                <div class="appreciation-bars">
+                
+                </div>
             </div>
         </div>
         <form class="rental-reserv">

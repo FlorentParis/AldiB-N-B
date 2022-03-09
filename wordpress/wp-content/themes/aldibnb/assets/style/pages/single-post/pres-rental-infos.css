@@ -61,3 +61,41 @@
   color: #353c6f;
   font-size: 22px;
 }
+
+.rental-advantages {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.rental-advantages > span {
+  font-size: 22px;
+  font-family: "Avenir";
+  color: #353c6f;
+  text-transform: uppercase;
+  font-weight: 850;
+}
+
+.rental-advantages > div {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+
+.rental-advantages .advantage {
+  display: flex;
+  align-items: center;
+}
+
+.rental-advantages .advantage > div {
+  height: 60px;
+  width: 60px;
+  display: block;
+  background-color: #e8e8e8;
+  margin-right: 20px;
+}
+
+.rental-advantages .advantage > span {
+  font-family: "Montserrat";
+  font-weight: 400;
+}

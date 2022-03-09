@@ -79,10 +79,30 @@
                     <span> • </span>
                     <span>291 commentaires</span>
                 </div>
-                <div class="appreciation-bars">
-                
+                <div class="appreciations-bars">
+                    <div class="appreciation">
+                        <span>Rapport qualité-prix</span>
+                        <div class="bar"><div></div></div>
+                        <span>4.7</span>
+                    </div>
+                    <div class="appreciation">
+                        <span>Accueil</span>
+                        <div class="bar"><div></div></div>
+                        <span>4.7</span>
+                    </div>
+                    <div class="appreciation">
+                        <span>Emplacement</span>
+                        <div class="bar"><div></div></div>
+                        <span>4.7</span>
+                    </div>
+                    <div class="appreciation">
+                        <span>Propreté</span>
+                        <div class="bar"><div></div></div>
+                        <span>4.7</span>
+                    </div>
                 </div>
             </div>
+            <?php comments_template(); ?>
         </div>
         <form class="rental-reserv">
             <div class="reserv-recap">
@@ -148,8 +168,28 @@
                 </div>
             </div>
             <button>Je réserve !</button>
+            <div class="title-recap">Détails de votre séjour</div>
+            <div class="price-recap">
+                <span>97€ x 5 nuits</span>
+                <span>485€</span>
+            </div>
+            <div class="price-recap">
+                <span>Promotion ou réduction (longue durée)</span>
+                <span>-20€</span>
+            </div>
+            <div class="price-recap">
+                <span>Frais de service</span>
+                <span>Offerts</span>
+            </div>
+            <div class="price-recap">
+                <span>Taxes de séjour</span>
+                <span>9€</span>
+            </div>
+            <div class="total">
+                <span>Total</span>
+                <span>474€</span>
+            </div>
         </form>
-        <?php comments_template(); ?>
     </div>
 </div>
 

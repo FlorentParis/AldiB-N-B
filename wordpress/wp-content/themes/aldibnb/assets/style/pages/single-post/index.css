@@ -2,6 +2,7 @@
 @import "./pres-rental-pics.css";
 @import "./rental-content.css";
 @import "./rental-reserv.css";
+@import "./pres-comments.css";
 
 .pres-rental-container {
   width: 100%;

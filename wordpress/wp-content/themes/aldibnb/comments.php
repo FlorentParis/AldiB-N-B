@@ -1,6 +1,6 @@
 <div id="commentaires" class="comments">
     <?php if ( have_comments() ) : ?>
-        <h2 class="comments__title">
+        <h2 class="comments-title">
             <?php echo get_comments_number(); // Nombre de commentaires ?> Commentaire(s)
         </h2>
 
@@ -19,7 +19,7 @@
     // S'il n'y a pas de commentaires
     else :
         ?>
-        <p class="comments__none">
+        <p class="comments-none">
             Il n'y a pas de commentaires pour le moment. Soyez le premier à participer !
         </p>
     <?php endif; ?>

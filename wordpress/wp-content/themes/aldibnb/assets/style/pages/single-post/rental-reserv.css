@@ -162,3 +162,36 @@
   border: none;
   text-transform: uppercase;
 }
+
+.rental-reserv > .title-recap,
+.rental-reserv > .price-recap {
+  font-size: 14px;
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.rental-reserv > .title-recap {
+  text-decoration: underline;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.rental-reserv > .price-recap {
+  text-align: center;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rental-reserv > .total {
+  border-top: 1px solid rgba(72, 79, 131, 0.3);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  margin-top: 10px;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+  text-transform: uppercase;
+  font-size: 15px;
+}

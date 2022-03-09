@@ -51,3 +51,68 @@
   margin-bottom: 0;
   line-height: 30px;
 }
+
+.rental-comments {
+  padding-top: 40px;
+}
+
+.rental-comments > div:first-of-type {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+  column-gap: 10px;
+}
+
+.rental-comments > div:first-of-type img {
+  padding-bottom: 7px;
+  padding-right: 10px;
+}
+
+.appreciations-bars {
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 80px;
+}
+
+.appreciations-bars > .appreciation {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.appreciations-bars > .appreciation > span:first-of-type {
+  font-family: "Montserrat";
+  font-weight: 400;
+  width: 170px;
+}
+
+.appreciation .bar {
+  width: 250px;
+  height: 7px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  position: relative;
+}
+
+.appreciation .bar > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80%;
+  background-color: #353c6f;
+  border-radius: 5px;
+}
+
+.appreciations-bars > .appreciation > span:last-of-type {
+  font-family: "Avenir";
+  font-weight: 850;
+  font-size: 15px;
+  color: #353c6f;
+}

@@ -41,7 +41,6 @@
             </div>
             <p>Cet appartement de 61 m2  vous propose une vue directe sur la mer depuis son balcon orienté ouest proposant ainsi de beaux couchés de soleil. L’appartement est équipé d’une salle de bain avec baignoire, d’une cuisine équipée ainsi que d’une place de parking qui vous est réservée. À 100 mètres de la mer et des commerces, vous pourrez profiter de Nice et ses longues balades.</p>
             <div class="rental-advantage">
-
             </div>
         </div>
         <form class="rental-reserv">
@@ -109,6 +108,7 @@
             </div>
             <button>Je réserve !</button>
         </form>
+        <?php comments_template(); ?>
     </div>
 </div>
 

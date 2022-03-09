@@ -1,2 +1,19 @@
 @import "./pres-rental-infos.css";
 @import "./pres-rental-pics.css";
+@import "./rental-content.css";
+@import "./rental-reserv.css";
+
+.pres-rental-container {
+  width: 100%;
+  padding: 0 90px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.pres-rental-container > div {
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+}

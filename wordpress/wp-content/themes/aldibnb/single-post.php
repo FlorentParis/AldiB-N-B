@@ -29,5 +29,87 @@
         </div>
     </div>
 </div>
+<div class="pres-rental-container">
+    <div>
+        <div class="rental-content">
+            <div class="rental-host">
+                <img src="/wp-content/themes/aldibnb/assets/img/profil/martine.jfif" alt="">
+                <div>
+                    <span>Hote : martine</span>
+                    <div>Membre depuis Janvier 2019 • <a href="">voir le profil</a></div>
+                </div>
+            </div>
+            <p>Cet appartement de 61 m2  vous propose une vue directe sur la mer depuis son balcon orienté ouest proposant ainsi de beaux couchés de soleil. L’appartement est équipé d’une salle de bain avec baignoire, d’une cuisine équipée ainsi que d’une place de parking qui vous est réservée. À 100 mètres de la mer et des commerces, vous pourrez profiter de Nice et ses longues balades.</p>
+            <div class="rental-advantage">
+
+            </div>
+        </div>
+        <form class="rental-reserv">
+            <div class="reserv-recap">
+                <span class="price"><span>97€&nbsp;</span>/ nuit</span>
+                <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span>4,81</span> <span>(291 commentaires)</span></span>
+            </div>
+            <div class="rental-select-choice">
+                <div class="date">
+                    <div>
+                        <label>Arrivée</label>
+                        <input type="date">
+                    </div>
+                    <div>
+                        <label>Départ</label>
+                        <input type="date">
+                    </div>
+                </div>
+                <div class="number-travelers-container">
+                    <span class="title">Nombre de voyageurs :</span>
+                    <div class="number-travelers-options">
+                        <div>
+                            <span class="type-person">Adultes</span>
+                            <span class="age-person">13 ans et plus</span>
+                        </div>
+                        <div>
+                            <button>-</button>
+                            2
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div class="number-travelers-options">
+                        <div>
+                            <span class="type-person">Enfants</span>
+                            <span class="age-person">De 2 à 12 ans</span>
+                        </div>
+                        <div>
+                            <button>-</button>
+                            0
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div class="number-travelers-options">
+                        <div>
+                            <span class="type-person">Bébés</span>
+                            <span class="age-person">- de 2 ans</span>
+                        </div>
+                        <div>
+                            <button>-</button>
+                            1
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div class="number-travelers-options">
+                        <div>
+                            <span class="type-person">Animaux de compagnie</span>
+                        </div>
+                        <div>
+                            <button>-</button>
+                            1
+                            <button>+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button>Je réserve !</button>
+        </form>
+    </div>
+</div>
 
 <?php get_footer(); ?>

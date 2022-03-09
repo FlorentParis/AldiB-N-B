@@ -1,0 +1,163 @@
+.rental-reserv {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  padding: 15px 25px;
+  border-radius: 5px;
+}
+
+.rental-reserv > .reserv-recap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rental-reserv .note {
+  font-size: 14px;
+  font-family: "Montserrat";
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+
+.rental-reserv .price {
+  font-family: "Avenir";
+  font-weight: 550;
+  color: #353c6f;
+  font-size: 22px;
+  display: flex;
+  justify-content: end;
+}
+
+.rental-reserv .note > span:first-of-type {
+  padding: 0 5px;
+}
+
+.rental-reserv .note > span:last-of-type {
+  text-decoration: underline;
+}
+
+.rental-reserv .note > span:first-of-type,
+.rental-reserv .price > span {
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+  font-size: 22px;
+}
+
+.rental-reserv .rental-select-choice {
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  padding: 12px 25px;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
+.rental-select-choice .date {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.rental-select-choice .date > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.rental-select-choice .date > div:first-of-type {
+  border-right: 1px solid rgba(72, 79, 131, 0.3);
+  width: 148px;
+  padding-right: 25px;
+}
+
+.rental-select-choice .date > div:last-of-type {
+  width: 148px;
+  padding-left: 25px;
+}
+
+.rental-select-choice .date > div input {
+  border: none;
+  font-family: "Avenir";
+  font-size: 15px;
+  font-weight: 850;
+  color: #353c6f;
+}
+
+.number-travelers-container {
+  padding-top: 15px;
+  row-gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.number-travelers-container > .title {
+  font-size: 15px;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+  text-transform: uppercase;
+}
+
+.number-travelers-container > .number-travelers-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number-travelers-options .type-person {
+  font-size: 15px;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+  text-transform: uppercase;
+}
+
+.number-travelers-options > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.number-travelers-options .age-person {
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.number-travelers-options > div:last-of-type {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+}
+
+.number-travelers-options > div:last-of-type > button {
+  background-color: transparent;
+  border: 1px solid #353c6f;
+  border-radius: 100%;
+  height: 22px;
+  width: 22px;
+  line-height: 18px;
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #353c6f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rental-reserv > button {
+  font-family: "Avenir";
+  font-weight: 850;
+  color: #fff;
+  background-color: #353c6f;
+  border-radius: 5px;
+  font-size: 18px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-transform: uppercase;
+}

@@ -88,11 +88,14 @@ function createUser()
             'comment_status'=> 'closed',
             /*TODO rajouter la catégorie
             'taxt_input' => [
-                'style' => [$_POST['']]
+                'logement' => [$_POST['post_logement']]
             ],
             */
             'meta_input'=>array(
-                'post_price' => $_POST["post_price"]
+                'post_price' => $_POST["post_price"],
+                'chambre' => $_POST['nb_chambre'],
+                'lit' =>$_POST['nb_lit'],
+                'piece' =>$_POST['nb_piece']
             )
         );
         //Insérer un post en base de données

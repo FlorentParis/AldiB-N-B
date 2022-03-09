@@ -26,7 +26,14 @@
         <label for="post_price"> Prix par nuit </label>
         <input type="number" name="post_price" id="post_price"><br>
 
-        <label for=""></label>
+        <label for="nb_chambre">Nombre de chambre</label>
+        <input type="number" name="nb_chambre" id="nb_chambre"/>
+
+        <label for="nb_lit">Nombre de lit</label>
+        <input type="number" name="nb_lit" id="nb_lit"/>
+
+        <label for="nb_piece">Nombre de pièce</label>
+        <input type="number" name="nb_piece" id="nb_piece"/>
 
         <label for="post_image">Image</label>
         <input type="file" name="post_image" id="post_image" multiple="false"/>

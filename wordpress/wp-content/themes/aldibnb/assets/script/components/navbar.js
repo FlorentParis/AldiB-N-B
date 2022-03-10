@@ -20,3 +20,31 @@ function myFunction() {
         });
     }
 }
+
+/* Modal Global */
+const modal = document.querySelector(".modal-container");
+const cross = document.querySelector("#modal-close");
+
+cross.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalInsc.style.display = "none";
+    modalConnect.style.display = "none";
+})
+
+/* Modal Inscription */
+const lienInscription = document.querySelector('#inscription-link');
+const modalInsc = document.querySelector(".container-inscription");
+
+lienInscription.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalInsc.style.display = "block";
+})
+
+/* Modal Connexion */
+const lienConnexion = document.querySelector("#connexion-link");
+const modalConnect = document.querySelector(".container-connexion");
+
+lienConnexion.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalConnect.style.display = "block";
+})

@@ -1,0 +1,88 @@
+.modal-container {
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: rgba(221, 222, 231, 0.6);
+}
+
+.modal-element {
+  width: 660px;
+  background-color: #fff;
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  border-radius: 5px;
+  display: flex;
+  padding: 30px 20px;
+  position: relative;
+}
+
+.modal-element > img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.modal-element .title {
+  width: 100%;
+  text-align: center;
+  font-family: "Avenir";
+  font-size: 22px;
+  font-weight: 850;
+  color: #353c6f;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.modal-element form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-element form > span {
+  font-family: "Avenir";
+  font-size: 18px;
+  font-weight: 850;
+  color: #353c6f;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  padding-top: 25px;
+}
+
+.modal-element p {
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0;
+}
+
+.checkbox-content {
+  display: flex;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.checkbox-content > input {
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+}
+
+.modal-element form > button {
+  height: 60px;
+  background-color: #353c6f;
+  font-size: 22px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 850;
+  font-family: "Avenir";
+  border: none;
+  border-radius: 5px;
+}

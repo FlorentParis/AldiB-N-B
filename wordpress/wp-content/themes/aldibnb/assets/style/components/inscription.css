@@ -1,0 +1,58 @@
+.container-inscription {
+  width: 100%;
+  display: none;
+}
+
+.container-inscription form .content-input {
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  border-radius: 5px;
+}
+
+.container-inscription form .content-input label {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.container-inscription form .content-input input,
+.container-inscription form .content-input input::placeholder,
+.container-inscription form input[type="date"] {
+  border: none;
+  font-family: "Avenir";
+  font-size: 18px;
+  color: #353c6f;
+  text-transform: uppercase;
+  font-weight: 850;
+}
+
+.container-inscription form input[type="date"] {
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  padding: 12px 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.container-inscription form .content-mail {
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-inscription .content-input > div {
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-inscription .content-input > div:last-of-type {
+  border-top: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.container-inscription > p {
+  padding-top: 5px;
+}
+
+.container-inscription > p > span,
+.container-inscription > p > a {
+  color: #353c6f;
+  font-weight: 500;
+}

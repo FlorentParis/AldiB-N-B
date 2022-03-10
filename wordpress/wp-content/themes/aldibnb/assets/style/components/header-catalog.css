@@ -44,3 +44,7 @@ header.header-cat .nav-right {
   font-family: "Montserrat";
   font-weight: 300;
 }
+
+.nav-right li {
+  cursor: pointer;
+}

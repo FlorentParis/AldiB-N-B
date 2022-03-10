@@ -1,0 +1,46 @@
+.container-connexion {
+  display: none;
+  width: 100%;
+}
+
+.container-connexion > form {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.container-connexion > form > .content-input {
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  border-radius: 5px;
+}
+
+.container-connexion form .content-input input,
+.container-connexion form .content-input input::placeholder {
+  border: none;
+  font-family: "Avenir";
+  font-size: 18px;
+  color: #353c6f;
+  text-transform: uppercase;
+  font-weight: 850;
+}
+
+.container-connexion .checkbox-content {
+  padding: 0;
+}
+
+.container-connexion .psw-forget {
+  display: flex;
+  justify-content: center;
+}
+
+.container-connexion a {
+  font-family: "Montserrat";
+  color: #353c6f;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 10px;
+}

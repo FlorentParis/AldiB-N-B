@@ -3,12 +3,12 @@
 <div class="pres-rental-infos">
     <div class="pres-infos-content">
         <div>
-            <span class="title">Appartement nice avec balcon et vue directe sur la mer</span>
-            <span class="tags">1 lit • Balcon • Vue sur la mer</span>
+            <span class="title"><?= the_title() ?></span>
+            <span class="tags"><?= get_post_meta(get_the_ID(), "lit", true) ?> lit • Balcon • Vue sur la mer</span>
         </div>
         <div>
-            <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span>4,81</span> <span>(291 commentaires)</span></span>
-            <span class="price"><span>97€&nbsp;</span>/ nuit</span>
+            <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span><?= get_post_meta(get_the_ID(), "note", true) ?></span> <span>(<?= get_comments_number() ?> commentaires )</span></span>
+            <span class="price"><span><?= get_post_meta(get_the_ID(), "post_price", true)?>€&nbsp;</span>/ nuit</span>
         </div>
     </div>
 </div>
@@ -35,11 +35,11 @@
             <div class="rental-host">
                 <img src="/wp-content/themes/aldibnb/assets/img/profil/martine.jfif" alt="">
                 <div>
-                    <span>Hote : martine</span>
-                    <div>Membre depuis Janvier 2019 • <a href="">voir le profil</a></div>
+                    <span>Hote : <?= the_author()  ?></span> <!-- TODO trouver comment afficher l'auteur car la fonction the_author me retourne une string vide -->
+                    <div>Membre depuis <?php echo get_the_date(); ?> • <a href="">voir le profil</a></div>
                 </div>
             </div>
-            <p>Cet appartement de 61 m2  vous propose une vue directe sur la mer depuis son balcon orienté ouest proposant ainsi de beaux couchés de soleil. L’appartement est équipé d’une salle de bain avec baignoire, d’une cuisine équipée ainsi que d’une place de parking qui vous est réservée. À 100 mètres de la mer et des commerces, vous pourrez profiter de Nice et ses longues balades.</p>
+            <?= the_content() ?>
             <div class="rental-advantages">
                 <span>Les points forts de cette destination/location</span>
                 <div>
@@ -75,9 +75,9 @@
             </div>
             <div class="rental-comments">
                 <div>
-                    <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span>4,81</span></span>
+                    <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span><?= get_post_meta(get_the_ID(), "note", true) ?></span></span>
                     <span> • </span>
-                    <span>291 commentaires</span>
+                    <span><?= get_comments_number() ?> commentaires </span>
                 </div>
                 <div class="appreciations-bars">
                     <div class="appreciation">
@@ -106,8 +106,8 @@
         </div>
         <form class="rental-reserv">
             <div class="reserv-recap">
-                <span class="price"><span>97€&nbsp;</span>/ nuit</span>
-                <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span>4,81</span> <span>(291 commentaires)</span></span>
+                <span class="price"><span><?= get_post_meta(get_the_ID(), "post_price", true)?>€&nbsp;</span>/ nuit</span>
+                <span class="note"><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/><span><?= get_post_meta(get_the_ID(), "note", true) ?></span> <span>(<?= get_comments_number() ?> commentaires )</span></span>
             </div>
             <div class="rental-select-choice">
                 <div class="date">
@@ -170,8 +170,14 @@
             <button>Je réserve !</button>
             <div class="title-recap">Détails de votre séjour</div>
             <div class="price-recap">
-                <span>97€ x 5 nuits</span>
-                <span>485€</span>
+                <span><?= get_post_meta(get_the_ID(), "post_price", true)?>€ x 5 nuits</span>
+                <span>
+                    <?php
+                        $oneNight = get_post_meta(get_the_ID(), "post_price", true);
+                        $price =  $oneNight * 5;
+                        echo $price
+                     ?> €
+                </span>
             </div>
             <div class="price-recap">
                 <span>Promotion ou réduction (longue durée)</span>
@@ -187,7 +193,11 @@
             </div>
             <div class="total">
                 <span>Total</span>
-                <span>474€</span>
+                <span>
+                    <?php
+                        echo $price - 11 + "€"
+                    ?>
+                </span>
             </div>
         </form>
     </div>

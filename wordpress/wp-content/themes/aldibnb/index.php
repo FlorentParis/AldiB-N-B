@@ -1,54 +1,109 @@
-<?php get_header(); ?>
+<?php get_header('catalog');
 
+$rentals = [];
+if (have_posts()) :
+    while (have_posts()) :
+        the_post();
+        $container = [
+            "titre" => get_the_title(),
+            "photo" => get_the_post_thumbnail_url(),
+            "lit" => get_post_meta(get_the_ID(), "lit", true),
+            "pieces" => get_post_meta(get_the_ID(), "piece", true),
+            "chambres" => get_post_meta(get_the_ID(), "chambre", true),
+            "description" => get_the_content(),
+            "prix" => get_post_meta(get_the_ID(), "post_price", true),
+            "note" => get_post_meta(get_the_ID(), "note", true),
+            "url" => get_the_permalink()
+        ];
+        array_push($rentals, $container);
+    endwhile;
+endif;
 
-<div class="mt-3 mb-3">
-    <h3>Catégories</h3>
-    <ul class="list-group list-group-horizontal text-center">
-        <?php
-        $args = array(
-            'hide_empty' => false, 
-        );
-        $terms = get_terms(['taxonomy' => 'logement'], $args);
-        foreach ($terms as $term) {
-            $active = get_query_var('logement') === $term->slug ? active : '';
-            echo '<a class="list-group-item list-group-item-action'. $active .'"
-            href="' . get_term_link($term) . '">' . $term->name . '</a>';
-        }; ?>
+$args = array(
+    'hide_empty' => false, 
+);
+$terms = get_terms(['taxonomy' => 'logement'], $args);
+
+/* $tags = ["Balcon", "Parking sous terrain", "Piscine", "Mer", "Accepte les animaux", "Terrasse", "Cuisine", "Jacuzzi"];
+ */
+?>
+
+<div class="search-bar">
+    <form>
+        <div class="search-case">
+            <label>Destination</label>
+            <input type="text" placeholder="Où voulez-vous aller ?"/>
+        </div>
+        <div class="search-case">
+            <label>Départ</label>
+            <input type="date" />
+        </div> 
+        <div class="search-case">
+            <label>Arrivée</label>
+            <input type="date" />
+        </div> 
+        <div class="search-case">
+            <label>Adultes</label>
+            <input type="number" placeholder="Combien ?"/>
+        </div> 
+        <div class="search-case">
+            <label>Enfants</label>
+            <input type="number" placeholder="Combien ?"/>
+        </div>
+        <div class="search-case">
+            <label>Ajouter des filtres</label>
+            <input type="text" placeholder="Piscine, balcon …"/>
+        </div>
+        <button>
+            <img src="/wp-content/themes/aldibnb/assets/icons/search.svg" />
+        </button>
+    </form>
+    <div class="tags-used">
+        <?php foreach($terms as $term): 
+            ?>
+            <div class="tag">
+                <span><?= '<a class=" text-decoration-none list-group-item-action href="' . get_term_link($term) . '">' . $term->name . '</a>'; ?></span>
+                <img src="/wp-content/themes/aldibnb/assets/icons/cross.svg"/>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </div>
-
-
-
-<?php if (have_posts()) : ?>
-<div class="card-group">
-    <?php while (have_posts()) : ?>
-
-        <?php the_post(); ?>
-
-        <div class="card">
-            <img src="<?php the_post_thumbnail_url(); ?>" class="card-img-top" alt="...">
-            <div class="card-body">
-
-                <?php if (get_post_meta(get_the_ID(), 'wpheticSponso', true)) : ?>
-                    <div class="alert alert-primary" role="alert">
-                        Contenu Sponso
+<div class="rentals-list">
+    <?php foreach($rentals as $rental): ?>
+        <div class="single-rental">
+            <div class="photos">
+                <img src="/wp-content/themes/aldibnb/assets/icons/heart.svg" />
+                <img src=<?= $rental["photo"] ?> />
+            </div>
+            <div class="rental-desc">
+                <div><?= $rental["pieces"] ?> pièce(s) • <?= $rental['chambres'] ?> chambre(s) • <?= $rental["lit"] ?> lit(s)</div>
+                <span><?= $rental["titre"] ?></span>
+                <?= $rental["description"] ?>
+            </div>
+            <div class="rental-infos">
+                <div>
+                    <div class="rental-infos-comments">
+                        <span><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/> <?= $rental["note"] ?></span>
+                        <span>(291 commentaires)</span>
                     </div>
-                <?php endif; ?>
-
-                <h5 class="card-title"><?php the_title(); ?></h5>
-
-                <p><small> Style: <?= the_terms(get_the_ID(), 'style'); ?></small></p>
-                <p class="card-text"><?php the_excerpt(); ?></p>
-                <p class="card-text"><?php the_content(); ?></p>
-                <a href="<?php the_permalink(); ?>" class="btn btn-primary">Lire plus</a>
+                    <div class="rental-infos-price">
+                        <span><?= $rental["prix"] ?> / nuit</span>
+                        <span>(485€ au total)</span>
+                    </div>
+                </div>
+                <button onclick="window.location=`<?php echo $rental['url'] ?>`;" >
+                    En savoir plus                    
+                </button>
             </div>
         </div>
-
-    <?php endwhile; ?>
+    <?php endforeach; ?>
+    <button>En voir plus</button>
 
 </div>
-
-    <?= wpheticPaginate() ?>
-
-<?php endif; ?>
+<div class="surprise-destination" style="margin-bottom: 30px;">
+    <p>Vous n'avez pas trouvé votre appartement/location/destination idéale ? </br>
+        Pas de soucis, nous avons LA solution/destination qu'il vous faut !</p>
+    <button>Surprenez-moi !</button>
+</div>
 
 <?php get_footer(); ?>

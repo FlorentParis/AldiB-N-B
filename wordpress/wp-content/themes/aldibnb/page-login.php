@@ -26,12 +26,12 @@
                         <label class="form-check-label" for="Check1">Check me out</label>
                     </div>
                     <button type="submit" class="btn btn-primary" name="">Submit</button>
-                    <input type="hidden" name="redirect_to" value="http://localhost:5555/articles">
+                    <input type="hidden" name="redirect_to" value="http://localhost:5555/">
                 </form>
 
                 <!-- creer utilisateur -->
                 <h3>Sign up</h3>
-                <form action="" method="post">
+                <form method="post" action ="http://localhost:5555/wp-admin/admin-post.php"  enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="InputEmail2" class="form-label">Email address</label>
                         <input type="text" class="form-control" id="InputEmail2" aria-describedby="emailHelp" name="log">
@@ -46,10 +46,12 @@
                         <input type="password" class="form-control" id="InputPassword2" name="pwd">
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="admin" name="admin">
-                        <label class="form-check-label" for="admin">Admin</label>
+                        <input type="checkbox" class="form-check-input" id="manager" name="manager">
+                        <label class="form-check-label" for="manager">Modérateur</label>
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick=<?= createUser()?>>Submit</button>
+
+                    <input type="hidden" name="action" value="insert_user">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
             </div>

@@ -61,19 +61,22 @@ function wpheticPaginate()
 
 function createUser() 
 {
-    if(isset($_POST["admin"])){
-        $admin = "administrateur";
+    if(isset($_POST["manager"])){
+        $role = "manager";
     }else{
-        $admin = "";
+        $role = "utilisateur";
     }
-
+    
     wp_insert_user( array(
         'user_pass' => $_POST["pwd"],
         'user_login' => $_POST["username"],
         'user_email' => $_POST["log"],
-        'role' => $admin
+        'role' => $role
     ));
+    wp_redirect(home_url('login'));
 };
+add_action('admin_post_insert_user', 'createUser');
+
 
  function createPost()
 {

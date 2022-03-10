@@ -13,7 +13,7 @@
             <?php
             $terms = get_terms(['taxonomy' => 'logement']);
             foreach ($terms as $term): ?>
-            <option value="<?php $term->term_id; ?>"><?= $term->name; ?></option>
+            <option value="<?=$term->term_id; ?>"><?= $term->name; ?></option>
             <?php endforeach;?>
         </select>
 

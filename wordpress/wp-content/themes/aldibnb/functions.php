@@ -83,14 +83,13 @@ function createUser()
             'post_content' => $_POST["message_post"],
             'post_title' => $_POST["post_title"],
             'post_type'=> 'post',
-            'post_status' => 'publish',
+            'post_status' => 'pending',
+            //'post_status'=> 'publish',
             'post_author' => get_current_user_id(),
-            'comment_status'=> 'closed',
-            /*TODO rajouter la catégorie
-            'taxt_input' => [
+            'comment_status'=> 'open',
+            'tax_input' => [
                 'logement' => [$_POST['post_logement']]
             ],
-            */
             'meta_input'=>array(
                 'post_price' => $_POST["post_price"],
                 'chambre' => $_POST['nb_chambre'],
@@ -107,6 +106,7 @@ function createUser()
             wp_redirect($_POST['_wp_http_referer']. '.status=error'); //redirect objet d'erreur
         }else{
             set_post_thumbnail($post_id, $attachment_id);
+            //var_dump(get_permalink($post_id));
             wp_redirect(home_url('?p='. $post_id));
         }
     }else{

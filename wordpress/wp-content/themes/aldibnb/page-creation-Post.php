@@ -11,7 +11,10 @@
         <label for='post_logement'> Catégorie </label>
         <select name="post_logement" id ="post_logement">
             <?php
-            $terms = get_terms(['taxonomy' => 'logement']);
+            $args = array(
+                'hide_empty' => false, 
+            );
+            $terms = get_terms(['taxonomy' => 'logement'], $args);
             foreach ($terms as $term): ?>
             <option value="<?=$term->term_id; ?>"><?= $term->name; ?></option>
             <?php endforeach;?>

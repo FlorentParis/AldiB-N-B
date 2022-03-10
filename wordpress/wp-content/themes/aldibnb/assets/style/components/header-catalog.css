@@ -48,3 +48,8 @@ header.header-cat .nav-right {
 .nav-right li {
   cursor: pointer;
 }
+
+.nav-right li a {
+  text-decoration: none;
+  color: #fff;
+}

@@ -14,7 +14,7 @@
                 <span>AldiB'n'B</span>
             </div>
             <ul class="nav-right">
-                <li>Publier une annonce</li>
+                <li><a href="<?php bloginfo('url'); ?>/creation-post/">Publier une annonce</a></li>
                 <li id="inscription-link">Inscription</li>
                 <li id="connexion-link">Connexion</li>
             </ul>

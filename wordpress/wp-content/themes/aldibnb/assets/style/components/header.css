@@ -25,6 +25,28 @@ header#navbar {
   height: 70%;
 }
 
+header#navbar .links {
+  transition: opacity 1s;
+  list-style: none;
+  color: #fff;
+  display: none;
+  column-gap: 50px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  position: absolute;
+  right: 90px;
+  margin: 0;
+}
+
+header#navbar .links > li {
+  cursor: pointer;
+}
+
+header#navbar .links a {
+  color: #fff;
+  text-decoration: none;
+}
+
 #burger-content {
   height: 20px;
   width: 28px;
@@ -33,6 +55,7 @@ header#navbar {
   justify-content: space-between;
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 
 #burger-content > span {
@@ -40,7 +63,24 @@ header#navbar {
   height: 2px;
   background-color: #fff;
   display: block;
-  transition: all 1s;
+  transition: all 0.25s;
+}
+
+#burger-content.open > span {
+  transform-origin: left;
+  width: 25px;
+}
+
+#burger-content.open > span:first-of-type {
+  transform: rotateZ(45deg);
+}
+
+#burger-content.open > span:nth-of-type(2) {
+  opacity: 0%;
+}
+
+#burger-content.open > span:last-of-type {
+  transform: rotateZ(-45deg);
 }
 
 @media only screen and (max-width: 690px) {

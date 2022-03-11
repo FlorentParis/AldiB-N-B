@@ -23,6 +23,8 @@ header.header-classic .nav-container {
 header.header-classic .nav-left {
   display: flex;
   align-items: center;
+  border: none;
+  background-color: transparent;
 }
 
 header.header-classic .nav-left img {
@@ -33,6 +35,7 @@ header.header-classic .nav-left span {
   padding-left: 10px;
   font-family: "SignPainter";
   font-size: 34px;
+  color: #fff;
 }
 
 header.header-classic .nav-right {
@@ -43,6 +46,10 @@ header.header-classic .nav-right {
   column-gap: 50px;
   font-family: "Montserrat";
   font-weight: 300;
+}
+
+header.header-classic #burger-content {
+  display: none;
 }
 
 .nav-right li a {

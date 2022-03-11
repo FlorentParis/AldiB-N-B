@@ -1,5 +1,6 @@
 const navbar = document.getElementById('navbar');
 const burger = document.getElementById('burger-content');
+const links = document.querySelector(".links");
 
 window.onscroll = function() {myFunction()};
 
@@ -11,6 +12,8 @@ function myFunction() {
         burger.querySelectorAll('span').forEach(element => {
             element.style.backgroundColor = "#353C6F";
         });
+        links.style.color = "#353C6F";
+        links.childNodes[1].childNodes[0].style.color = "#353C6F";
     }else {
         navbar.style.backgroundColor = "transparent";
         navbar.style.height = "136px";
@@ -18,8 +21,21 @@ function myFunction() {
         burger.querySelectorAll('span').forEach(element => {
             element.style.backgroundColor = "#fff";
         });
+        links.style.color = "#fff";
+        links.childNodes[1].childNodes[0].style.color = "#fff";
     }
 }
+
+/* Burger Action */
+burger.addEventListener("click", () => {
+    if(burger.classList == "open") {
+        burger.classList = "";
+        links.style.display = "none";
+    }else {
+        burger.classList = "open";
+        links.style.display = "flex";
+    }
+})
 
 /* Modal Global */
 const modal = document.querySelector(".modal-container");

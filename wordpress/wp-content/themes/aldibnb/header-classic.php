@@ -36,23 +36,29 @@
                     <div>
                         <div class="content-input">
                             <div>
-                                <label for="">Prénom</label>
-                                <input type="text" name="" id="" placeholder="Votre prénom">
+                                <label for="">Username</label>
+                                <input type="text" name="" id="" placeholder="Votre username">
                             </div>
                             <div>
-                                <label for="">Nom</label>
-                                <input type="text" name="" id="" placeholder="Votre nom">
+                                <label for="">Adresse e-mail</label>
+                                <input type="mail" placeholder="Votre adresse e-mail">
                             </div>
                         </div>
-                        <p>Assurez-vous qu’il correspond au nom figurant sur votre pièce d’identité.</p>
+                        <p>Nous vous enverrons les confirmations et les reçus de votre voyage par e-mail.</p>
                     </div>
-                    <span>Date de naissance</span>
-                    <input type="date">
-                    <div class="content-input content-mail">
-                        <label for="">Adresse e-mail</label>
-                        <input type="mail" placeholder="Votre adresse e-mail">
+                    <span>Mot de passe</span>
+                    <div>
+                        <div class="content-input">
+                            <div>
+                                <label for="">Mot de passe</label>
+                                <input type="password" placeholder="Votre mot de passe">
+                            </div>
+                            <div>
+                                <label for="">Vérification mot de passe</label>
+                                <input type="password" placeholder="Vérification de votre mot de passe">
+                            </div>
+                        </div>
                     </div>
-                    <p>Nous vous enverrons les confirmations et les reçus de votre voyage par e-mail.</p>
                     <div class="checkbox-content">
                         <input type="checkbox" name="" id="">
                         <p>Je souhaite recevoir des messages promotionnels d'Aldibnb.</p>

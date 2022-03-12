@@ -35,7 +35,7 @@
   display: flex;
   column-gap: 15px;
   transition: all 1s ease-in-out;
-  /* transform: translateX(-50.3%); */
+  transform: translateX(0%);
 }
 
 .choice-destination .carousel-part {

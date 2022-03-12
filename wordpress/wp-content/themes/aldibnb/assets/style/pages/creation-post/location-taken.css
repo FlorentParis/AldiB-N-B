@@ -1,0 +1,12 @@
+.location-taken {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-taken .bar-input button {
+  height: 70px;
+  position: relative;
+  top: -11px;
+  right: -1px;
+  border-radius: 0 5px 5px 0;
+}

@@ -84,7 +84,7 @@ header#navbar .links a {
 }
 
 @media only screen and (max-width: 690px) {
-  .nav-container {
+  #navbar .nav-container {
     margin: 0 40px;
   }
 }

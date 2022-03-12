@@ -3,16 +3,6 @@
   display: none;
 }
 
-.container-inscription form .content-input {
-  border: 1px solid rgba(72, 79, 131, 0.3);
-  border-radius: 5px;
-}
-
-.container-inscription form .content-input label {
-  font-family: "Montserrat";
-  font-weight: 400;
-}
-
 .container-inscription form .content-input input,
 .container-inscription form .content-input input::placeholder,
 .container-inscription form input[type="date"] {
@@ -45,6 +35,16 @@
 
 .container-inscription .content-input > div:last-of-type {
   border-top: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.container-inscription form .content-input {
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  border-radius: 5px;
+}
+
+.container-inscription form .content-input label {
+  font-family: "Montserrat";
+  font-weight: 400;
 }
 
 .container-inscription > p {

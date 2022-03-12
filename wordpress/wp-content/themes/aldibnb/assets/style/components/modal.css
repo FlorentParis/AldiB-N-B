@@ -63,13 +63,13 @@
   margin: 0;
 }
 
-.checkbox-content {
+.modal-element .checkbox-content {
   display: flex;
   align-items: center;
   padding: 25px 0;
 }
 
-.checkbox-content > input {
+.modal-element .checkbox-content > input {
   height: 30px;
   width: 30px;
   margin-right: 15px;

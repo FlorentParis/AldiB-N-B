@@ -1,3 +1,6 @@
+<?php session_start();
+$_SESSION["url"] = $wp->request;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +18,12 @@
             </button>
             <ul class="nav-right">
                 <li><a href="<?php bloginfo('url'); ?>/creation-post/">Publier une annonce</a></li>
-                <li id="inscription-link">Inscription</li>
-                <li id="connexion-link">Connexion</li>
+                <?php if(is_user_logged_in() == FALSE){ ?>
+                    <li id="inscription-link">Inscription</li>
+                    <li id="connexion-link">Connexion</li>
+                <?php } else { ?>
+                    <li id="deconnexion-link"><a role="button" href="<?php echo wp_logout_url(home_url($_SESSION["url"])); ?>">deconnexion</a></li>
+                <?php }; ?>
             </ul>
             <div id="burger-content">
                 <span></span>
@@ -31,17 +38,17 @@
             <img src="/wp-content/themes/aldibnb/assets/icons/cross-blue.svg" id="modal-close"/>
             <div class="container-inscription">
                 <div class="title">Inscription</div>
-                <form action="">
+                <form method="post" action ="http://localhost:5555/wp-admin/admin-post.php"  enctype="multipart/form-data">
                     <span>Informations</span>
                     <div>
                         <div class="content-input">
                             <div>
-                                <label for="">Username</label>
-                                <input type="text" name="" id="" placeholder="Votre username">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" placeholder="Votre username">
                             </div>
                             <div>
-                                <label for="">Adresse e-mail</label>
-                                <input type="mail" placeholder="Votre adresse e-mail">
+                                <label for="InputEmail">Adresse e-mail</label>
+                                <input type="text" id="InputEmail" name="log" placeholder="Votre adresse e-mail">
                             </div>
                         </div>
                         <p>Nous vous enverrons les confirmations et les reçus de votre voyage par e-mail.</p>
@@ -50,51 +57,48 @@
                     <div>
                         <div class="content-input">
                             <div>
-                                <label for="">Mot de passe</label>
-                                <input type="password" placeholder="Votre mot de passe">
+                                <label for="InputPassword">Mot de passe</label>
+                                <input type="password" id="InputPassword" name="pwd" placeholder="Votre mot de passe">
                             </div>
                             <div>
-                                <label for="">Vérification mot de passe</label>
-                                <input type="password" placeholder="Vérification de votre mot de passe">
-                            </div>
+                                <label for="verification">Vérification mot de passe</label>
+                                <input type="password" id="verification" name="verification" placeholder="Vérification de votre mot de passe">
+                            </div>    
                         </div>
+                        <?php if(isset($_SESSION["error_pass"])) { ?>
+                                  <p class="error">Les mots de passe ne sont pas identiques</p>
+                        <?php }; ?>
                     </div>
                     <div class="checkbox-content">
                         <input type="checkbox" name="" id="">
                         <p>Je souhaite recevoir des messages promotionnels d'Aldibnb.</p>
                     </div>
-                    <button type="submit">Accepter et continuer</button>
+                    <input type="hidden" name="action" value="insert_user">
+                    <button type="submit">Submit</button>
                 </form>
                 <p>En cliquant sur <span>Accepter et continuer</span>, j’accepte les <a href="">Conditions générales</a>, les <a href="">Conditions de service relatives aux paiements</a>, la <a href="">Politique de non-discrimination</a> et je reconnais avoir pris connaissance de la <a href="">Politique de confidentialité</a> d’AldiBnB.</p>
             </div>
+            
             <div class="container-connexion">
                 <div class="title">Connexion</div>
-                <form action="">
+                <form action="<?= home_url('wp-login.php');?>" method="post">
                     <div class="content-input">
-                        <label for="">Adresse e-mail</label>
-                        <input type="mail" placeholder="Votre adresse e-mail">
+                        <label for="InputEmail2">Adresse e-mail</label>
+                        <input type="mail" placeholder="Votre adresse e-mail" id="InputEmail2" name="log">
                     </div>
                     <div class="content-input">
-                        <label for="">Mot de passe</label>
-                        <input type="password" placeholder="Votre mot de passe">
+                        <label for="InputPassword2">Mot de passe</label>
+                        <input type="password" id="InputPassword1" name="pwd"  placeholder="Votre mot de passe">
                     </div>
                     <div class="checkbox-content">
                         <input type="checkbox" name="" id="">
                         <p>Je souhaite recevoir des messages promotionnels d'Aldibnb.</p>
                     </div>
+                    <input type="hidden" name="redirect_to" value="<?php echo home_url($_SESSION["url"]) ?>">
                     <button type="submit">Se connecter</button>
                 </form>
                 <div class="psw-forget"><a href="">Mot de passe oublié ?</a></div>
             </div>
         </div>
     </div>
-
-    <?php 
-    if(!empty(get_option('agence_horaire'))){
-        ?>
-        <div class="alert alert-danger" role="alert">
-        <?= get_option('agence_horaire'); ?>
-        </div>
-        <?php
-    };
     

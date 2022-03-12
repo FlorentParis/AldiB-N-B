@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 function wphetic_theme_support() {
     add_theme_support('title-tag');
     add_theme_support( 'post-thumbnails' );
@@ -63,22 +65,27 @@ function wpheticPaginate()
 }
 
 function createUser() 
-{
-    if(isset($_POST["manager"])){
-        $role = "manager";
-    }else{
-        $role = "utilisateur";
+{   
+    if ($_POST["pwd"] == $_POST["verification"]){
+        if(isset($_POST["manager"])){
+            $role = "manager";
+        }else{
+            $role = "utilisateur";
+        }
+        
+        wp_insert_user( array(
+            'user_pass' => $_POST["pwd"],
+            'user_login' => $_POST["username"],
+            'user_email' => $_POST["log"],
+            'role' => $role
+        ));
+    } else {
+        $_SESSION["error_pass"] = TRUE;
     }
-    
-    wp_insert_user( array(
-        'user_pass' => $_POST["pwd"],
-        'user_login' => $_POST["username"],
-        'user_email' => $_POST["log"],
-        'role' => $role
-    ));
-    wp_redirect(home_url('login'));
+
+    wp_redirect(home_url($_SESSION["url"]));
 };
-add_action('admin_post_insert_user', 'createUser');
+add_action('admin_post_nopriv_insert_user', 'createUser');
 
 
  function createPost()
@@ -273,5 +280,4 @@ add_action('manage_post_posts_custom_column', function($col, $post_id) {
 }, 10, 2);
 
 /* require_once('options/BannerMessage.php');
-
 BannerMessage::register(); */

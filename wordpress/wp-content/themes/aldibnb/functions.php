@@ -201,47 +201,50 @@ add_action('after_switch_theme', function(){
 
 /*Ajout du rôle Event Manager*/
 add_action('after_switch_theme', function() {
-    add_role('event_manager', 'Event Manager', [  //Création du rôle
+    add_role('event_manager', 'Event Manager', array(  //Création du rôle
         'read' => true, //Ajout du droit pour lire
         'event_rights' => true //Ajout du droit pour gérer les events
-    ]);
+    ));
 });
 
 /*Ajout du rôle Utilisateur*/
 add_action('after_switch_theme', function() {
-    add_role('utilisateur', 'Utilisateur', [  //Création du rôle
+    add_role('utilisateur', 'Utilisateur', array(  //Création du rôle
         'event_rights' => true, //Ajout du droit pour gérer les events
         'delete_posts' => true,
         'edit_posts' => true,
         'publish_posts' => true
         //C'est ici qu'on définiera les droits de nos utilisateurs
-    ]);
+    ));
 });
 
 /*Ajout du rôle Manager*/
 add_action('after_switch_theme', function() {
-    add_role('manager', 'Manager', [  //Création du rôle
+    add_role('manager', 'Manager', array(  //Création du rôle
         'read' => true, //Ajout du droit pour lire
         'event_rights' => true, //Ajout du droit pour gérer les events
-        'delete_posts' => true,
+        'delete_posts' => false,
         'edit_posts' => true,
         'publish_posts' => true,
         'delete_others_posts' => true,
         'delete_published_posts' => true,
         'delete_private_posts' => true,
-        'edit_others_posys' => true,
+        'edit_others_posts' => true,
         'edit_private_posts' => true,
         'edit_published_posts' => true,
-        'read_privates_posts' => true
+        'read_privates_posts' => true,
+        'moderate_comments' => true,
+        'edit_comments' => true
         //C'est ici qu'on définiera les droits de nos utilisateurs
-    ]);
+    ));
 });
 
 /*Nettoyer les droits donnés aux utilisateurs pour ne pas entacher les autres thèmes*/
 add_action('switch_theme', function() {
     $admin = get_role('administrator'); //Récupération du rôle 'administrator
     $admin->remove_cap('event_rights'); //Suppression des droits de l'utilisateur
-    remove_role('utilisateur'); //Suppression du droit 
+    remove_role('manager');
+    remove_role('utilisateur'); //Suppression du role 
 });
 
 /* require_once('options/BannerMessage.php');

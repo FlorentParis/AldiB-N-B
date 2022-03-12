@@ -1,0 +1,75 @@
+@import "./form-post.css";
+@import "./location-taken.css";
+
+.creation-post-content {
+  padding: 0 90px;
+  display: flex;
+  justify-content: center;
+}
+
+.creation-post-content > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1440px;
+  width: 100%;
+  column-gap: 15px;
+}
+
+.creation-post-content p {
+  font-size: 22px;
+  font-weight: 850;
+  font-family: "Avenir";
+  color: #353c6f;
+  text-transform: uppercase;
+}
+
+.creation-post-content button {
+  background-color: #353c6f;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 850;
+  font-family: "Avenir";
+  height: 60px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.bar-input {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(72, 79, 131, 0.3);
+  border-radius: 5px;
+  padding: 10px 0;
+  height: 70px;
+  margin-bottom: 25px;
+}
+
+.bar-input > div {
+  padding: 0 20px;
+  height: 50px;
+}
+
+.bar-input > div:not(.bar-input > div:last-of-type) {
+  border-right: 1px solid rgba(72, 79, 131, 0.3);
+}
+
+.bar-input label {
+  font-family: "Montserrat";
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.bar-input input {
+  border: none;
+  color: #353c6f;
+  font-family: "Avenir";
+  font-weight: 850;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.bar-input input::placeholder {
+  color: #353c6f;
+}

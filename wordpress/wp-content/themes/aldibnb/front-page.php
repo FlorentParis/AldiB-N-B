@@ -1,6 +1,5 @@
-<?php get_header(); ?>
+<?php get_header();
 
-<?php
 $locations = [
     [
         "titre" => "Appartement en Seine et Marne",
@@ -14,10 +13,9 @@ $locations = [
         "pieces" => 3,
         "chambres" => 1
     ]
-]
-?>
+];
 
-<?php
+
 $cities = [
     [
         "name" => "Paris",
@@ -74,24 +72,29 @@ $cities = [
                 <label>Voyageurs</label>
                 <input type="number" placeholder="Avec qui ?" />
             </div>
-            <button><img src="wp-content/themes/aldibnb/assets/icons/search.svg" /></button>
+            <button onclick="window.location=`/catalog`;"><img src="wp-content/themes/aldibnb/assets/icons/search.svg" /></button>
         </form>
     </div>
 </div>
 <div class="popular-rentals">
     <span class="title">Les destinations/locations les plus populaires</span>
     <div class="container-popular-rentals">
-        <?php foreach($locations as $loc) { ?>
-            <div class="rental-case">
-                <div class="rental-pic" style="background-image: url(<?= $loc['photo'] ?>)">
-                    <img src="wp-content/themes/aldibnb/assets/icons/heart.svg" />
+        <?php
+        $posts = new WP_Query( 'posts_per_page=2' );
+        //var_dump(get_the_ID());
+        if($posts->have_posts()):
+            while ($posts->have_posts()) : $posts->the_post();?>
+                <div class="rental-case">
+                    <div class="rental-pic" style="background-image: url(<?= get_the_post_thumbnail_url()?>)">
+                        <img src="wp-content/themes/aldibnb/assets/icons/heart.svg" />
+                    </div>
+                    <div class="rental-infos">
+                        <span><?=get_post_meta(get_the_ID(), "piece", true); ?> pièces ~ <?= get_post_meta(get_the_ID(), "chambre", true)  ?> chambres</span>
+                    </div>
+                    <div class="rental-title"><?= the_title() ?></div>
                 </div>
-                <div class="rental-infos">
-                    <span><?= $loc["pieces"] ?> pièces ~ <?= $loc["chambres"] ?> chambres</span>
-                </div>
-                <div class="rental-title"><?= $loc["titre"] ?></div>
-            </div>
-        <?php } ?>
+            <?php endwhile;
+        endif;?>
     </div>
     <button>En voir plus</button>
 </div>

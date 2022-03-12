@@ -39,7 +39,7 @@ $cities = [
     </div>
     <div class="container-destination-bar">
         <span>Votre style, votre destination.</span>
-        <form class="destination-bar">
+        <form class="destination-bar" action="http://localhost:5555/catalog/">
             <div class="case">
                 <label>Destination</label>
                 <input type="text" placeholder="Où voulez-vous aller ?" />

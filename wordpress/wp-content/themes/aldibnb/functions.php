@@ -244,6 +244,31 @@ add_action('switch_theme', function() {
     remove_role('utilisateur'); //Suppression du role 
 });
 
+add_filter('manage_post_posts_columns', function($col) {
+    return array(
+        'cb' => $col['cb'],
+        'title' => $col['title'],
+        'image' => 'Image',
+        'price' => 'Prix',
+        'taxonomy-logement' => $col['taxonomy-logement'],
+        'date' => $col['date']
+    );
+});
+
+add_action('manage_post_posts_custom_column', function($col, $post_id) {
+    if($col === 'image'){
+        the_post_thumbnail('thumbnail', $post_id);
+    }
+    elseif($col === 'price'){
+        if(get_post_meta($post_id, 'post_price', true) == null){
+            echo("Pas de prix");
+        }else{
+            echo(get_post_meta($post_id, 'post_price', true) . " €");
+        }
+    }
+   
+}, 10, 2);
+
 /* require_once('options/BannerMessage.php');
 
 BannerMessage::register(); */

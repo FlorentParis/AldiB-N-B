@@ -59,14 +59,16 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
         </button>
     </form>
     <div class="tags-used">
-        <?php foreach($terms as $term): 
-            ?>
-            <div class="tag">
-                <span><?= '<a class=" text-decoration-none list-group-item-action href="' . get_term_link($term) . '">' . $term->name . '</a>'; ?></span>
-                <img src="/wp-content/themes/aldibnb/assets/icons/cross.svg"/>
-            </div>
-        <?php endforeach; ?>
+        <?php
+            $terms2 = get_terms(['taxonomy' => 'logement'], $args);
+            foreach ($terms2 as $term2) {
+                $active = get_query_var('logement') === $term2->slug ? active : '';
+                echo '<a class="list-group-item list-group-item-action'. $active .'"
+                href="' . get_term_link($term2) . '">' . $term2->name . '</a>';
+            }
+        ?>
     </div>
+    <a href="http://localhost:5555/catalog/">Supprimer les filtres</a>
 </div>
 <div class="rentals-list">
     <?php foreach($rentals as $rental): ?>

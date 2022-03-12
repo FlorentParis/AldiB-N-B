@@ -14,7 +14,7 @@
 </div>
 <div class="pres-rental-pics">
     <div class="content-pics">
-        <div><img src="/wp-content/themes/aldibnb/assets/icons/heart.svg" /><img src="/wp-content/themes/aldibnb/assets/img/Appart5.png" alt=""></div>
+        <div><img src="/wp-content/themes/aldibnb/assets/icons/heart.svg" /><img src="<?= get_the_post_thumbnail_url()?>" alt=""></div>
         <div>
             <img src="/wp-content/themes/aldibnb/assets/img/Appart1.png" alt="">
         </div>
@@ -35,7 +35,7 @@
             <div class="rental-host">
                 <img src="/wp-content/themes/aldibnb/assets/img/profil/martine.jfif" alt="">
                 <div>
-                    <span>Hote : <?= the_author()  ?></span> <!-- TODO trouver comment afficher l'auteur car la fonction the_author me retourne une string vide -->
+                <span>Hote : <?= get_the_author_meta('display_name', get_post_field('post_author', get_the_ID())); ?></span>
                     <div>Membre depuis <?php echo get_the_date(); ?> • <a href="">voir le profil</a></div>
                 </div>
             </div>
@@ -195,8 +195,8 @@
                 <span>Total</span>
                 <span>
                     <?php
-                        echo $price - 11 + "€"
-                    ?>
+                         echo $price - 11
+                    ?>€
                 </span>
             </div>
         </form>

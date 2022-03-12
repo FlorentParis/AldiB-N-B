@@ -114,13 +114,13 @@ add_action('admin_post_nopriv_insert_user', 'createUser');
         $post_id = wp_insert_post($post_args);
         //Traitement d'upload d'image - Si tout a marché -> rattache l'image au post
         $attachment_id = media_handle_upload('post_image', $post_id);
-        var_dump($attachment_id);
+
         if(is_wp_error($attachment_id)){
             wp_redirect($_POST['_wp_http_referer']. '.status=error'); //redirect objet d'erreur
         }else{
             set_post_thumbnail($post_id, $attachment_id);
             //var_dump(get_permalink($post_id));
-            wp_redirect(home_url('?p='. $post_id));
+            wp_redirect(home_url());
         }
     }else{
         wp_redirect($_POST['_wp_http_referer'].'?status=no_once');

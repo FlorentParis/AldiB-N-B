@@ -86,10 +86,10 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
                 <div>
                     <div class="rental-infos-comments">
                         <span><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/> <?= $rental["note"] ?></span>
-                        <span>(291 commentaires)</span>
+                        <span>(<?= get_comments_number() ?> commentaires)</span>
                     </div>
                     <div class="rental-infos-price">
-                        <span><?= $rental["prix"] ?> / nuit</span>
+                        <span><?= $rental["prix"] ?>€ / nuit</span>
                         <span>(485€ au total)</span>
                     </div>
                 </div>

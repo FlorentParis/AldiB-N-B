@@ -1,21 +1,5 @@
 <?php get_header();
 
-$locations = [
-    [
-        "titre" => "Appartement en Seine et Marne",
-        "photo" => "wp-content/themes/aldibnb/assets/img/Appart3.png",
-        "pieces" => 4,
-        "chambres" => 2
-    ],
-    [
-        "titre" => "Appartement à paris, 11e arrondissement",
-        "photo" => "wp-content/themes/aldibnb/assets/img/Appart5.png",
-        "pieces" => 3,
-        "chambres" => 1
-    ]
-];
-
-
 $cities = [
     [
         "name" => "Paris",

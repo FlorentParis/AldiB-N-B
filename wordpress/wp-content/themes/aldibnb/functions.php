@@ -20,7 +20,10 @@ function wphetic_bootstrap()
     wp_enqueue_script('script_navbar',
     get_template_directory_uri() . '/assets/script/components/navbar.js', 
     [], false, true);
-    /* Perso Style Pages */
+    wp_enqueue_script('script_carousel',
+    get_template_directory_uri() . '/assets/script/components/carousel.js', 
+    [], false, true);
+    /* Perso Script Pages */
     wp_enqueue_script('script_homepage',
     get_template_directory_uri() . '/assets/script/pages/homepage.js', 
     [], false, true);

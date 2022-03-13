@@ -1,9 +1,7 @@
-<?php get_header('catalog');
+<?php 
+get_header('catalog');
 $rentals = [];
 
-
-/* var_dump(get_posts($_SESSION["args"]));
- */
 if($_SESSION["args"] != 0){
     $postslist = get_posts($_SESSION["args"]);
     foreach($postslist as $post){

@@ -17,24 +17,14 @@
 
             <span>Informations</span>
 
-            <div class="input">
-                <label for='post_logement'> Type de location </label>
-                <select name="post_logement" id ="post_logement">
-                    <?php
-                    $args = array(
-                        'hide_empty' => false, 
-                    );
-                    $terms = get_terms(['taxonomy' => 'logement'], $args);
-                    foreach ($terms as $term): ?>
-                    <option value="<?=$term->term_id; ?>"><?= $term->name; ?></option>
-                    <?php endforeach;?>
-                </select>
-            </div>
-
             <div class="content-input">
                 <div>
                     <label for="post_title"> Nom de votre location </label>
                     <input type="text" name="post_title" id="post_title" placeholder="EX. Appartement Parisien vue sur la tour eiffel">
+                </div>
+                <div>
+                    <label for="location"> Ville de votre location </label>
+                    <input type="text" name="location" id="location" placeholder="EX. Paris, Marseille, Nantes...">
                 </div>
                 <div>
                     <label for="post_price"> Prix par nuit </label>

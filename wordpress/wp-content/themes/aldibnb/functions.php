@@ -96,14 +96,12 @@ add_action('admin_post_nopriv_insert_user', 'createUser');
 
  function createPost()
 {
-    if(/* current_user_can('event_rights')
-    &&  */wp_verify_nonce($_POST['upload_post_nonce'], 'upload_post')){
+    if(wp_verify_nonce($_POST['upload_post_nonce'], 'upload_post')){
         $post_args =array(
             'post_content' => $_POST["message_post"],
             'post_title' => $_POST["post_title"],
             'post_type'=> 'post',
             'post_status' => 'pending',
-            //'post_status'=> 'publish',
             'post_author' => get_current_user_id(),
             'comment_status'=> 'open',
             'tax_input' => [
@@ -113,13 +111,55 @@ add_action('admin_post_nopriv_insert_user', 'createUser');
                 'post_price' => $_POST["post_price"],
                 'chambre' => $_POST['nb_chambre'],
                 'lit' =>$_POST['nb_lit'],
-                'piece' =>$_POST['nb_piece']
+                'piece' =>$_POST['nb_piece'],
+                'location' => $_POST['location'],
             )
         );
+
+        $terms = array();
+        if($_POST["appartements"] === "on"){
+            array_push($terms,"appartements");
+        }
+        if($_POST["maison"] === "on"){
+            array_push($terms,"maison");
+        }
+        if($_POST["villa"] === "on"){
+            array_push($terms,"villa");
+        }
+        if($_POST["dépendance"] === "on"){
+            array_push($terms,"dépendance");
+        }
+        if($_POST["wifi"] === "on"){
+            array_push($terms,"wifi");
+        }
+        if($_POST["lave-Linge"] === "on"){
+            array_push($terms,"lave-Linge");
+        }
+        if($_POST["seche-linge"] === "on"){
+            array_push($terms,"seche-linge");
+        }
+        if($_POST["piscine"] === "on"){
+            array_push($terms,"piscine");
+        }
+        if($_POST["cuisine"] === "on"){
+            array_push($terms,"cuisine");
+        }
+        if($_POST["jacuzzi"] === "on"){
+            array_push($terms,"jacuzzi");
+        }
+        if($_POST["logement_fumeur"] === "on"){
+            array_push($terms,"logement_fumeur");
+        }
+        if($_POST["animaux_acceptés"] === "on"){
+            array_push($terms,"animaux_acceptés");
+        }
+
         //Insérer un post en base de données
         $post_id = wp_insert_post($post_args);
         //Traitement d'upload d'image - Si tout a marché -> rattache l'image au post
         $attachment_id = media_handle_upload('post_image', $post_id);
+        /* Inserer taxonomy */
+        wp_set_object_terms($post_id , $terms ,'logement');
 
         if(is_wp_error($attachment_id)){
             wp_redirect($_POST['_wp_http_referer']. '.status=error'); //redirect objet d'erreur
@@ -399,3 +439,10 @@ function search_catalog(){
 };
 add_action('admin_post_nopriv_search_post', 'search_catalog');
 add_action('admin_post_search_post', 'search_catalog');
+
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+    if (!current_user_can('administrator') && !current_user_can('manager')) {
+        show_admin_bar(false);
+    }
+}

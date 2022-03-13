@@ -2,10 +2,9 @@
 $rentals = [];
 
 var_dump(get_posts($_SESSION["args"]));
+echo ARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRGS ;
 var_dump($_SESSION["args"]);
 /* if($_SESSION["args"] != 0){
-    
-    var_dump($posts);
     foreach($posts as $post){
         echo "ll";
         $container = [

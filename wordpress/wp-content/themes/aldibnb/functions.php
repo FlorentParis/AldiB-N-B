@@ -376,12 +376,6 @@ function search_catalog(){
         ),
         'meta_query' => array( 
             'relation' => 'AND', 
-            /* array( 
-                'key' => 'post_price', 
-                'value' => $prix,
-                'type' => 'numeric', 
-                'compare' => $comparateurPrix,
-            ),  */
             array( 
                 'key' => 'lit', 
                 'value' => $voyageur,

@@ -52,7 +52,19 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
         </div>
         <div class="search-case">
             <label>Ajouter des filtres</label>
-            <input type="text" placeholder="Piscine, balcon …"/>
+            <?php
+            $terms2 = get_terms(['taxonomy' => 'logement'], $args);
+            ?>
+            <select>
+                <?php
+                foreach ($terms2 as $term2) {
+                    $active = get_query_var('logement') === $term2->slug ? active : '';
+                    ?>
+                    <option><?=$term2->name?></option>
+                    <?php
+                }
+                ?>
+            </select>
         </div>
         <button>
             <img src="/wp-content/themes/aldibnb/assets/icons/search.svg" />

@@ -310,7 +310,7 @@ function search_catalog(){
 
     //Fonction des cas particuliers
     $typeDeLogement = array(); 
-    if($_POST["appartement"] === "on"){
+    if($_POST["appartements"] === "on"){
         array_push($typeDeLogement,"appartements");
     }
     if($_POST["maison"] === "on"){
@@ -397,4 +397,5 @@ function search_catalog(){
     $_SESSION["args"] = $args;
     wp_redirect(home_url("catalog"));
 };
+add_action('admin_post_nopriv_search_post', 'search_catalog');
 add_action('admin_post_search_post', 'search_catalog');

@@ -2,7 +2,9 @@ const navbar = document.getElementById('navbar');
 const burger = document.getElementById('burger-content');
 const links = document.querySelector(".links");
 
-window.onscroll = function() {myFunction()};
+if(window.location.href == "http://localhost:5555/") {
+    window.onscroll = function() {myFunction()};
+}
 
 function myFunction() {
     if(window.scrollY > 300) {

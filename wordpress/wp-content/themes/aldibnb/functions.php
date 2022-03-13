@@ -32,6 +32,9 @@ function wphetic_bootstrap()
     wp_enqueue_script('script_catalog',
     get_template_directory_uri() . '/assets/script/pages/catalog.js', 
     [], false, true);
+    wp_enqueue_script('script_creation_post',
+    get_template_directory_uri() . '/assets/script/pages/creation-post.js', 
+    [], false, true);
 }
 
 add_filter('nav_menu_css_class', function ($classes) {

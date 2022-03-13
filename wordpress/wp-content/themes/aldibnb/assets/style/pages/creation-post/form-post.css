@@ -96,3 +96,19 @@
   text-transform: none;
   font-size: 14px;
 }
+
+#btn-creation-post-filter {
+  margin-bottom: 25px;
+  margin-top: -15px;
+  background-color: #353c6f;
+  color: #fff;
+  border-radius: 5px;
+  height: 40px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 850;
+  font-family: "Avenir";
+  text-transform: uppercase;
+}

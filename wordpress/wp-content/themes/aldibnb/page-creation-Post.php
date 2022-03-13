@@ -62,26 +62,89 @@
                 </div>
             </div>
 
-            <div class="checkbox-content p-0">
-                <input type="checkbox" name="" id="">
-                <p>Autoriser les animaux.</p>
-            </div>
-
             <span>Description</span>
 
             <textarea name="message_post" id="message_post" cols="30" rows="10" placeholder="Mettez en avant votre location"></textarea>
 
             <span>Ajouter des filtres</span>
 
-            <div class="input">
-                <label for="">Séparez vos filtres par des ,</label>
-                <input type="text" name="" id="" placeholder="EX. Balcon, piscine, montagne ...">
+            <div id="btn-creation-post-filter">
+                <span>Ajouter</span>
             </div>
 
             <input type="hidden" name="action" value="upload_post">
             <?php wp_nonce_field('upload_post', 'upload_post_nonce');?>
 
             <button type="submit">Postez votre annonce</button>
+
+            <section id="modalFilters">
+                <div class="modalFilterContainer">
+                    <img src="/wp-content/themes/aldibnb/assets/icons/cross-blue.svg" id="modal-filters-close">
+                    <div class="title">Filtres</div>
+                    <div class="list-filters">
+                        <span>Type de logement</span>
+                        <div>
+                            <div class="tag">
+                                <input name="appartements" id="appartements" type="checkbox">
+                                <span>Appartements</span>
+                            </div>
+                            <div class="tag">
+                                <input name="maison" id="maison" type="checkbox">
+                                <span>Maison</span>
+                            </div>
+                            <div class="tag">
+                                <input name="villa" id="villa" type="checkbox">
+                                <span>Villa</span>
+                            </div>
+                            <div class="tag">
+                                <input name="dépendance" id="dépendance" type="checkbox">
+                                <span>Dépendance</span>
+                            </div>
+                        </div>
+                        <span>Équipements</span>
+                        <div>
+                            <div class="tag">
+                                <input name="wifi" id="wifi" type="checkbox">
+                                <span>Wifi</span>
+                            </div>
+                            <div class="tag">
+                                <input name="lave-Linge" id="lave-Linge" type="checkbox">
+                                <span>Lave-Linge</span>
+                            </div>
+                            <div class="tag">
+                                <input name="seche-linge" id="seche-linge" type="checkbox">
+                                <span>Seche-Linge</span>
+                            </div>
+                        </div>
+                        <span>Installations</span>
+                        <div>
+                            <div class="tag">
+                                <input name="piscine" id="piscine" type="checkbox">
+                                <span>Piscine</span>
+                            </div>
+                            <div class="tag">
+                                <input name="cuisine" id="cuisine" type="checkbox">
+                                <span>Cuisine</span>
+                            </div>
+                            <div class="tag">
+                                <input name="jacuzzi" id="jacuzzi" type="checkbox">
+                                <span>Jacuzzi</span>
+                            </div>
+                        </div>
+                        <span>Règlement intérieur</span>
+                        <div>
+                            <div class="tag">
+                                <input name="logement_fumeur" id="logement_fumeur" type="checkbox">
+                                <span>Logement Fumeur</span>
+                            </div>
+                            <div class="tag">
+                                <input name="animaux_acceptés" id="animaux_acceptés" type="checkbox">
+                                <span>Animaux Acceptés</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </form>
         <div class="location-taken">
             <p>Choisissez les dates où vous ne voulez pas que votre location soit louée</p>

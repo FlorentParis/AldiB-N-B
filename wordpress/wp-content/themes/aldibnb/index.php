@@ -1,26 +1,26 @@
 <?php get_header('catalog');
 $rentals = [];
 
-var_dump(get_posts($_SESSION["args"]));
-echo ARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRGS ;
-var_dump($_SESSION["args"]);
-/* if($_SESSION["args"] != 0){
-    foreach($posts as $post){
-        echo "ll";
+
+/* var_dump(get_posts($_SESSION["args"]));
+ */
+if($_SESSION["args"] != 0){
+    $postslist = get_posts($_SESSION["args"]);
+    foreach($postslist as $post){
         $container = [
-            "titre" => $post["post_title"],
-            "lit" => get_post_meta($post["ID"], "lit", true),
-            "pieces" => get_post_meta($post["ID"], "piece", true),
-            "chambres" => get_post_meta($post["ID"], "chambre", true),
-            "description" => $post["post_content"],
-            "prix" => get_post_meta($post["ID"], "post_price", true),
-            "note" => get_post_meta($post["ID"], "note", true),
-            "url" => $post["guid"]
+            "titre" => get_the_title(),
+            "photo" => get_the_post_thumbnail_url(),
+            "lit" => get_post_meta(get_the_ID(), "lit", true),
+            "pieces" => get_post_meta(get_the_ID(), "piece", true),
+            "chambres" => get_post_meta(get_the_ID(), "chambre", true),
+            "description" => get_the_content(),
+            "prix" => get_post_meta(get_the_ID(), "post_price", true),
+            "note" => get_post_meta(get_the_ID(), "note", true),
+            "url" => get_the_permalink()
         ];
         array_push($rentals, $container);
-        
     }
-}else */if (have_posts()) {
+}elseif (have_posts()) {
     while (have_posts()) :
         the_post();
         $container = [
@@ -37,7 +37,7 @@ var_dump($_SESSION["args"]);
         array_push($rentals, $container);
     endwhile;
 }
-
+unset($_SESSION['args']);
 $args = array(
     'hide_empty' => false, 
 );
@@ -152,6 +152,7 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
 </div>
 <div class="rentals-list">
     <?php foreach($rentals as $rental): ?>
+        
         <div class="single-rental">
             <div class="photos">
                 <img src="/wp-content/themes/aldibnb/assets/icons/heart.svg" />

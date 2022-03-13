@@ -282,6 +282,122 @@ add_action('manage_post_posts_custom_column', function($col, $post_id) {
    
 }, 10, 2);
 
-
 /* require_once('options/BannerMessage.php');
 BannerMessage::register(); */
+
+function search_catalog(){
+
+    //$voyageur ($adulte + $enfant)
+    $voyageur = 0;
+    if($_POST["adultes"] != 0 && $_POST["enfants"] != 0){
+        $voyageur = $_POST["adultes"] + $_POST["enfants"];
+    }else{
+        if($_POST["adultes"] != 0) {
+            $voyageur = $_POST["adultes"];
+        }elseif($_POST["enfants"] != 0){
+            $voyageur = $_POST["enfants"];
+        }
+    }
+
+    /* Ville du logement */
+    $location = array("");
+    if(isset($_POST["location"])){
+        $location = array($_POST["location"]);
+    };
+
+    //Fonction des cas particuliers
+    $typeDeLogement = array(); 
+    if($_POST["appartement"] === "on"){
+        array_push($typeDeLogement,"appartements");
+    }
+    if($_POST["maison"] === "on"){
+        array_push($typeDeLogement,"maison");
+    }
+    if($_POST["villa"] === "on"){
+        array_push($typeDeLogement,"villa");
+    }
+    if($_POST["dépendance"] === "on"){
+        array_push($typeDeLogement,"dépendance");
+    }
+    if($_POST["wifi"] === "on"){
+        array_push($typeDeLogement,"wifi");
+    }
+    if($_POST["lave-Linge"] === "on"){
+        array_push($typeDeLogement,"lave-Linge");
+    }
+    if($_POST["seche-linge"] === "on"){
+        array_push($typeDeLogement,"seche-linge");
+    }
+    if($_POST["piscine"] === "on"){
+        array_push($typeDeLogement,"piscine");
+    }
+    if($_POST["cuisine"] === "on"){
+        array_push($typeDeLogement,"cuisine");
+    }
+    if($_POST["jacuzzi"] === "on"){
+        array_push($typeDeLogement,"jacuzzi");
+    }
+    if($_POST["logement_fumeur"] === "on"){
+        array_push($typeDeLogement,"logement_fumeur");
+    }
+    if($_POST["animaux_acceptés"] === "on"){
+        array_push($typeDeLogement,"animaux_acceptés");
+    }
+    if($typeDeLogement == array()){
+        $typeDeLogement = "Type de logement";
+    };
+
+
+    /* Les comparateurs */
+    if($voyageur==0){
+        $comparateurVoyageur = '>=';
+        $voyageur == 0;
+    }else{
+        $comparateurVoyageur = '=';
+    };
+
+    
+    if($location== array("")){
+        $comparateurLocation = '!=';
+    }else{
+        $comparateurLocation = '=';
+    };
+
+    //Création des paramètres de la requêtes
+    $args = array( 
+        'post_type' => 'post',
+        'tax_query' => array( 
+            array( 
+                'taxonomy' => 'logement', 
+                'field' => 'slug',
+                'terms' => $typeDeLogement,
+                'compare' => '='
+            ) 
+        ),
+        'meta_query' => array( 
+            'relation' => 'AND', 
+            /* array( 
+                'key' => 'post_price', 
+                'value' => $prix,
+                'type' => 'numeric', 
+                'compare' => $comparateurPrix,
+            ),  */
+            array( 
+                'key' => 'lit', 
+                'value' => $voyageur,
+                'type' => 'numeric', 
+                'compare' => $comparateurVoyageur, 
+            ),
+            array( 
+                'key' => 'location', 
+                'value' => $location,
+                'compare' => $comparateurLocation, 
+            )
+        ) 
+    );
+
+    /* $postslist = get_posts( $args ); */
+    $_SESSION["args"] = $args;
+    wp_redirect(home_url("catalog"));
+};
+add_action('admin_post_search_post', 'search_catalog');

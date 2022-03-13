@@ -1,7 +1,27 @@
 <?php get_header('catalog');
-
 $rentals = [];
-if (have_posts()) :
+
+var_dump(get_posts($_SESSION["args"]));
+var_dump($_SESSION["args"]);
+/* if($_SESSION["args"] != 0){
+    
+    var_dump($posts);
+    foreach($posts as $post){
+        echo "ll";
+        $container = [
+            "titre" => $post["post_title"],
+            "lit" => get_post_meta($post["ID"], "lit", true),
+            "pieces" => get_post_meta($post["ID"], "piece", true),
+            "chambres" => get_post_meta($post["ID"], "chambre", true),
+            "description" => $post["post_content"],
+            "prix" => get_post_meta($post["ID"], "post_price", true),
+            "note" => get_post_meta($post["ID"], "note", true),
+            "url" => $post["guid"]
+        ];
+        array_push($rentals, $container);
+        
+    }
+}else */if (have_posts()) {
     while (have_posts()) :
         the_post();
         $container = [
@@ -17,19 +37,20 @@ if (have_posts()) :
         ];
         array_push($rentals, $container);
     endwhile;
-endif;
+}
 
 $args = array(
     'hide_empty' => false, 
 );
+
 $terms = get_terms(['taxonomy' => 'logement'], $args);
 
-/* $tags = ["Balcon", "Parking sous terrain", "Piscine", "Mer", "Accepte les animaux", "Terrasse", "Cuisine", "Jacuzzi"];
- */
+
+/* $tags = ["Balcon", "Parking sous terrain", "Piscine", "Mer", "Accepte les animaux", "Terrasse", "Cuisine", "Jacuzzi"]; */
 ?>
 
 <div class="search-bar">
-    <form>
+    <form id="formulaire_post" method="post" action ="http://localhost:5555/wp-admin/admin-post.php" enctype="multipart/form-data">
         <section id="modalFilters">
             <div class="modalFilterContainer">
                 <img src="/wp-content/themes/aldibnb/assets/icons/cross-blue.svg" id="modal-filters-close">
@@ -38,61 +59,61 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
                     <span>Type de logement</span>
                     <div>
                         <div class="tag">
-                            <input type="checkbox">
-                            <span>Appartement</span>
+                            <input name="appartements" id="appartements" type="checkbox">
+                            <span>Appartements</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="maison" id="maison" type="checkbox">
                             <span>Maison</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="villa" id="villa" type="checkbox">
                             <span>Villa</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="dépendance" id="dépendance" type="checkbox">
                             <span>Dépendance</span>
                         </div>
                     </div>
                     <span>Équipements</span>
                     <div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="wifi" id="wifi" type="checkbox">
                             <span>Wifi</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="lave-Linge" id="lave-Linge" type="checkbox">
                             <span>Lave-Linge</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="seche-linge" id="seche-linge" type="checkbox">
                             <span>Seche-Linge</span>
                         </div>
                     </div>
                     <span>Installations</span>
                     <div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="piscine" id="piscine" type="checkbox">
                             <span>Piscine</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="cuisine" id="cuisine" type="checkbox">
                             <span>Cuisine</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="jacuzzi" id="jacuzzi" type="checkbox">
                             <span>Jacuzzi</span>
                         </div>
                     </div>
                     <span>Règlement intérieur</span>
                     <div>
                         <div class="tag">
-                            <input type="checkbox">
+                            <input name="logement_fumeur" id="logement_fumeur" type="checkbox">
                             <span>Logement Fumeur</span>
                         </div>
                         <div class="tag">
-                            <input type="checkbox">
-                            <span>Animaux acceptés</span>
+                            <input name="animaux_acceptés" id="animaux_acceptés" type="checkbox">
+                            <span>Animaux Acceptés</span>
                         </div>
                     </div>
                 </div>
@@ -101,7 +122,7 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
 
         <div class="search-case">
             <label>Destination</label>
-            <input type="text" placeholder="Où voulez-vous aller ?"/>
+            <input name="location" id="location" type="text"  placeholder="Où voulez-vous aller ?"/>
         </div>
         <div class="search-case">
             <label>Départ</label>
@@ -113,43 +134,21 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
         </div> 
         <div class="search-case">
             <label>Adultes</label>
-            <input type="number" placeholder="Combien ?"/>
+            <input name="adultes" id="adultes" type="number" placeholder="Combien ?"/>
         </div> 
         <div class="search-case">
             <label>Enfants</label>
-            <input type="number" placeholder="Combien ?"/>
+            <input name="enfants" id="enfants" type="number" placeholder="Combien ?"/>
         </div>
         <div class="search-case">
             <label>Ajouter des filtres</label>
-            <?php
-            $terms2 = get_terms(['taxonomy' => 'logement'], $args);
-            ?>
-            <select>
-                <?php
-                foreach ($terms2 as $term2) {
-                    $active = get_query_var('logement') === $term2->slug ? active : '';
-                    ?>
-                    <option><?=$term2->name?></option>
-                    <?php
-                }
-                ?>
-            </select>
             <span>Ajouter</span>
         </div>
-        <button>
+        <input type="hidden" name="action" value="search_post">
+        <button type="submit">
             <img src="/wp-content/themes/aldibnb/assets/icons/search.svg" />
         </button>
     </form>
-    <div class="tags-used">
-        <?php
-            $terms2 = get_terms(['taxonomy' => 'logement'], $args);
-            foreach ($terms2 as $term2) {
-                $active = get_query_var('logement') === $term2->slug ? active : '';
-                echo '<a class="list-group-item list-group-item-action'. $active .'"
-                href="' . get_term_link($term2) . '">' . $term2->name . '</a>';
-            }
-        ?>
-    </div>
     <a href="http://localhost:5555/catalog/">Supprimer les filtres</a>
 </div>
 <div class="rentals-list">

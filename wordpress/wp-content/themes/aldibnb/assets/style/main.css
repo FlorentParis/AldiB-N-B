@@ -11,6 +11,7 @@
 @import "./components/modal.css";
 @import "./components/inscription.css";
 @import "./components/connexion.css";
+@import "./components/modalFilters.css";
 
 /* Pages */
 @import "./pages/homepage/index.css";

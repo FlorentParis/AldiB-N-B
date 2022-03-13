@@ -30,6 +30,75 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
 
 <div class="search-bar">
     <form>
+        <section id="modalFilters">
+            <div class="modalFilterContainer">
+                <img src="/wp-content/themes/aldibnb/assets/icons/cross-blue.svg" id="modal-filters-close">
+                <div class="title">Filtres</div>
+                <div class="list-filters">
+                    <span>Type de logement</span>
+                    <div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Appartement</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Maison</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Villa</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Dépendance</span>
+                        </div>
+                    </div>
+                    <span>Équipements</span>
+                    <div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Wifi</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Lave-Linge</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Seche-Linge</span>
+                        </div>
+                    </div>
+                    <span>Installations</span>
+                    <div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Piscine</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Cuisine</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Jacuzzi</span>
+                        </div>
+                    </div>
+                    <span>Règlement intérieur</span>
+                    <div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Logement Fumeur</span>
+                        </div>
+                        <div class="tag">
+                            <input type="checkbox">
+                            <span>Animaux acceptés</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="search-case">
             <label>Destination</label>
             <input type="text" placeholder="Où voulez-vous aller ?"/>
@@ -65,6 +134,7 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
                 }
                 ?>
             </select>
+            <span>Ajouter</span>
         </div>
         <button>
             <img src="/wp-content/themes/aldibnb/assets/icons/search.svg" />

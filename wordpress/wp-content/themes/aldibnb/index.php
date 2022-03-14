@@ -156,10 +156,10 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
                 <img src="/wp-content/themes/aldibnb/assets/icons/heart.svg" />
                 <img src=<?= $rental["photo"] ?> />
             </div>
-            <div class="rental-desc">
+            <div class="rental-desc" style="overflow-y: hidden;">
                 <div><?= $rental["pieces"] ?> pièce(s) • <?= $rental['chambres'] ?> chambre(s) • <?= $rental["lit"] ?> lit(s)</div>
                 <span><?= $rental["titre"] ?></span>
-                <?= $rental["description"] ?>
+                <?= wpautop($rental["description"]); ?>
             </div>
             <div class="rental-infos">
                 <div>

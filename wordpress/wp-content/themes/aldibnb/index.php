@@ -30,7 +30,8 @@ if($_SESSION["args"] != 0){
             "description" => get_the_content(),
             "prix" => get_post_meta(get_the_ID(), "post_price", true),
             "note" => get_post_meta(get_the_ID(), "note", true),
-            "url" => get_the_permalink()
+            "url" => get_the_permalink(),
+            "commment_number" => get_comments_number()
         ];
         array_push($rentals, $container);
     endwhile;
@@ -165,7 +166,7 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
                 <div>
                     <div class="rental-infos-comments">
                         <span><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/> <?= $rental["note"] ?></span>
-                        <span>(<?= get_comments_number() ?> commentaires)</span>
+                        <span>(<?= $rental["comment_number"]?> commentaires)</span>
                     </div>
                     <div class="rental-infos-price">
                         <span><?= $rental["prix"] ?>€ / nuit</span>

@@ -31,7 +31,7 @@ if($_SESSION["args"] != 0){
             "prix" => get_post_meta(get_the_ID(), "post_price", true),
             "note" => get_post_meta(get_the_ID(), "note", true),
             "url" => get_the_permalink(),
-            "commment_number" => get_comments_number()
+            "comment_number" => get_comments_number()
         ];
         array_push($rentals, $container);
     endwhile;

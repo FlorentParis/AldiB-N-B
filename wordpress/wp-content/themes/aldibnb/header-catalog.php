@@ -19,12 +19,17 @@ $_SESSION["url"] = $wp->request;
                 <span>AldiB'n'B</span>
             </button>
             <ul class="nav-right">
-                <li><a href="<?php bloginfo('url'); ?>/creation-post/">Publier une annonce</a></li>
-                <?php if(is_user_logged_in() == FALSE){ ?>
+            <?php 
+                    if(is_user_logged_in()){?>
+                        <li><a href="<?php bloginfo("url"); ?>/creation-post/">Publier une annonce</a></li>
+                        
+                    <?php
+                    } 
+                if(is_user_logged_in() == FALSE){ ?>
                 <li id="inscription-link">Inscription</li>
                 <li id="connexion-link">Connexion</li>
                 <?php } else { ?>
-                    <li id="deconnexion-link"><a role="button" href="<?php echo wp_logout_url(home_url($_SESSION["url"])); ?>">deconnexion</a></li>
+                    <li id="deconnexion-link"><a role="button" href="<?php echo wp_logout_url(home_url($_SESSION["url"])); ?>">Déconnexion</a></li>
                 <?php }; ?>
             </ul>
             <div id="burger-content">

@@ -120,8 +120,8 @@ add_action('admin_post_nopriv_insert_user', 'createUser');
         if($_POST["appartements"] === "on"){
             array_push($terms,"appartements");
         }
-        if($_POST["maison"] === "on"){
-            array_push($terms,"maison");
+        if($_POST["Maisons"] === "on"){
+            array_push($terms,"Maisons");
         }
         if($_POST["villa"] === "on"){
             array_push($terms,"villa");
@@ -200,34 +200,6 @@ function wphetic_register_style_taxonomy(){
 
 }
 
-function wphetic_register_event_cpt(){
-    
-    $labels = [
-        'name' => 'Evènements',
-        'singular_name' => 'Evènements',
-        'search_items' => 'Rechercher évènements',
-        'all_items' => 'Tous les évènements'
-    ];
-
-    $args = [
-        'labels' => $labels,
-        'public' => true,
-        'show_in_rest' => true,
-        'menu_icon' => 'dashicon-tickets',
-        'supports' => ['title', 'editor', 'excerpt', 'thumbnail', 'custom-fields'],
-        'has_archive' => true,
-        'taxonomies' => ['style'],
-        'capabilities' => array(
-            'edit_post' => 'event_rights',
-            'read_post' => 'event_rights',
-            'delete_post' => 'event_rights',
-            //On définit quel droit permet de faire tel action
-        ),
-    ];
-
-    register_post_type('event', $args);
-
-}
 
 add_action('after_setup_theme','wphetic_theme_support');
 
@@ -243,27 +215,9 @@ add_action('after_switch_theme', function() {
     flush_rewrite_rules(); //Empêche les bugs de réécriture d'URL
 });
 
-/*Ajout de post custom*/
-add_action('init','wphetic_register_event_cpt');
-
-/*Ajout des droits 'manage_events' à l'utilisateur 'administrator'*/
-add_action('after_switch_theme', function(){
-    $admin = get_role('administrator'); //Récupération du rôle 'administrator
-    $admin->add_cap('event_rights'); //Ajout des droits au rôle
-});
-
-/*Ajout du rôle Event Manager*/
-add_action('after_switch_theme', function() {
-    add_role('event_manager', 'Event Manager', array(  //Création du rôle
-        'read' => true, //Ajout du droit pour lire
-        'event_rights' => true //Ajout du droit pour gérer les events
-    ));
-});
-
 /*Ajout du rôle Utilisateur*/
 add_action('after_switch_theme', function() {
     add_role('utilisateur', 'Utilisateur', array(  //Création du rôle
-        'event_rights' => true, //Ajout du droit pour gérer les events
         'delete_posts' => true,
         'edit_posts' => true,
         'publish_posts' => true
@@ -275,7 +229,6 @@ add_action('after_switch_theme', function() {
 add_action('after_switch_theme', function() {
     add_role('manager', 'Manager', array(  //Création du rôle
         'read' => true, //Ajout du droit pour lire
-        'event_rights' => true, //Ajout du droit pour gérer les events
         'delete_posts' => false,
         'edit_posts' => true,
         'publish_posts' => true,
@@ -295,7 +248,6 @@ add_action('after_switch_theme', function() {
 /*Nettoyer les droits donnés aux utilisateurs pour ne pas entacher les autres thèmes*/
 add_action('switch_theme', function() {
     $admin = get_role('administrator'); //Récupération du rôle 'administrator
-    $admin->remove_cap('event_rights'); //Suppression des droits de l'utilisateur
     remove_role('manager');
     remove_role('utilisateur'); //Suppression du role 
 });
@@ -306,6 +258,7 @@ add_filter('manage_post_posts_columns', function($col) {
         'title' => $col['title'],
         'image' => 'Image',
         'price' => 'Prix',
+        'location' => 'Lieu',
         'taxonomy-logement' => $col['taxonomy-logement'],
         'date' => $col['date']
     );
@@ -320,6 +273,13 @@ add_action('manage_post_posts_custom_column', function($col, $post_id) {
             echo("Pas de prix");
         }else{
             echo(get_post_meta($post_id, 'post_price', true) . " €");
+        }
+    }
+    elseif($col === 'location'){
+        if(get_post_meta($post_id, 'location', true) == null){
+            echo("Pas de lieu");
+        }else{
+            echo(get_post_meta($post_id, 'location', true));
         }
     }
    
@@ -357,8 +317,8 @@ function search_post(){
     if($_POST["appartements"] === "on"){
         array_push($typeDeLogement,"appartements");
     }
-    if($_POST["maison"] === "on"){
-        array_push($typeDeLogement,"maison");
+    if($_POST["Maisons"] === "on"){
+        array_push($typeDeLogement,"Maisons");
     }
     if($_POST["villa"] === "on"){
         array_push($typeDeLogement,"villa");
@@ -412,6 +372,7 @@ function search_post(){
 
     //Création des paramètres de la requêtes
     $args = array( 
+        'posts_per_page' => 100,
         'post_type' => 'post',
         'tax_query' => array( 
             array( 

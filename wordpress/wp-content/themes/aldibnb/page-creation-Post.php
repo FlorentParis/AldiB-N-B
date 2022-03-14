@@ -79,8 +79,8 @@
                                 <span>Appartements</span>
                             </div>
                             <div class="tag">
-                                <input name="maison" id="maison" type="checkbox">
-                                <span>Maison</span>
+                                <input name="Maisons" id="Maisons" type="checkbox">
+                                <span>Maisons</span>
                             </div>
                             <div class="tag">
                                 <input name="villa" id="villa" type="checkbox">

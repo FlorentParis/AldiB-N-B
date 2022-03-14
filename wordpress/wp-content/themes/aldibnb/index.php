@@ -14,7 +14,9 @@ if($_SESSION["args"] != 0){
             "description" => get_the_content(),
             "prix" => get_post_meta(get_the_ID(), "post_price", true),
             "note" => get_post_meta(get_the_ID(), "note", true),
-            "url" => get_the_permalink()
+            "url" => get_the_permalink(),
+            "comment_number" => get_comments_number()
+
         ];
         array_push($rentals, $container);
     }
@@ -33,6 +35,7 @@ if($_SESSION["args"] != 0){
             "url" => get_the_permalink(),
             "comment_number" => get_comments_number()
         ];
+
         array_push($rentals, $container);
     endwhile;
 }
@@ -61,8 +64,8 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
                             <span>Appartements</span>
                         </div>
                         <div class="tag">
-                            <input name="maison" id="maison" type="checkbox">
-                            <span>Maison</span>
+                            <input name="Maisons" id="Maisons" type="checkbox">
+                            <span>Maisons</span>
                         </div>
                         <div class="tag">
                             <input name="villa" id="villa" type="checkbox">
@@ -165,12 +168,20 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
             <div class="rental-infos">
                 <div>
                     <div class="rental-infos-comments">
-                        <span><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/> <?= $rental["note"] ?></span>
+                        <span><img src="/wp-content/themes/aldibnb/assets/icons/star.svg"/> <?= $rental["note"] ?> 4.7/5</span>
                         <span>(<?= $rental["comment_number"]?> commentaires)</span>
                     </div>
                     <div class="rental-infos-price">
                         <span><?= $rental["prix"] ?>€ / nuit</span>
-                        <span>(485€ au total)</span>
+                        <span>
+                            (<?php 
+                                $nuits = 3;
+                                $total = $rental["prix"] * $nuits;
+                                echo($total);
+                                echo("€");
+                            ?> 
+                            au total)
+                        </span>
                     </div>
                 </div>
                 <button onclick="window.location=`<?php echo $rental['url'] ?>`;" >
@@ -186,6 +197,7 @@ $terms = get_terms(['taxonomy' => 'logement'], $args);
     <p>Vous n'avez pas trouvé votre appartement/location/destination idéale ? </br>
         Pas de soucis, nous avons LA solution/destination qu'il vous faut !</p>
     <button>Surprenez-moi !</button>
+    
 </div>
 
 <?php get_footer(); ?>

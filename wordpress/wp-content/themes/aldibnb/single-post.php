@@ -16,16 +16,16 @@
     <div class="content-pics">
         <div><img src="/wp-content/themes/aldibnb/assets/icons/heart.svg" /><img src="<?= get_the_post_thumbnail_url()?>" alt=""></div>
         <div>
-            <img src="/wp-content/themes/aldibnb/assets/img/Appart1.png" alt="">
+            <img src="/wp-content/uploads/2022/04/2.png" alt="">
         </div>
         <div>
-            <img src="/wp-content/themes/aldibnb/assets/img/Appart2.png" alt="">
+            <img src="/wp-content/uploads/2022/04/3.png" alt="">
         </div>
         <div>
-            <img src="/wp-content/themes/aldibnb/assets/img/Appart3.png" alt="">
+            <img src="/wp-content/uploads/2022/04/4.png" alt="">
         </div>
         <div>
-            <img src="/wp-content/themes/aldibnb/assets/img/Appart4.png" alt="">
+            <img src="/wp-content/uploads/2022/04/5.png" alt="">
         </div>
     </div>
 </div>

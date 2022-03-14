@@ -43,34 +43,26 @@
             <div class="rental-advantages">
                 <span>Les points forts de cette destination/location</span>
                 <div>
-                    <div class="advantage">
-                        <div></div>
-                        <span>Balcon</span>
-                    </div>
-                    <div class="advantage">
-                        <div></div>
-                        <span>Vue sur la mer</span>
-                    </div>
-                    <div class="advantage">
-                        <div></div>
-                        <span>Proche des commerces</span>
-                    </div>
-                    <div class="advantage">
-                        <div></div>
-                        <span>Salle de bain avec baignoire</span>
-                    </div>
-                    <div class="advantage">
-                        <div></div>
-                        <span>Appartement neuf</span>
-                    </div>
-                    <div class="advantage">
-                        <div></div>
-                        <span>Ambiance/Déco zen</span>
-                    </div>
-                    <div class="advantage">
-                        <div></div>
-                        <span>Parking gratuit</span>
-                    </div>
+                    <?php
+                        $terms = get_the_terms( get_the_ID(), 'logement' );
+                        
+                         
+                        $draught_links = array();
+                     
+                        foreach ( $terms as $term ) {
+                            $draught_links[] = $term->name;
+                        }
+
+
+                        foreach($draught_links as $draught){
+                            ?>
+                            <div class="advantage">
+                                <div></div>
+                                <span><?= $draught ?></span>
+                            </div>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
             <div class="rental-comments">

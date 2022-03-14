@@ -81,7 +81,7 @@ $cities = [
             <?php endwhile;
         endif;?>
     </div>
-    <button>En voir plus</button>
+    <button onclick="location.href='http://localhost:5555/catalog'" type="button">En voir plus</button>
 </div>
 <div class="surprise-destination">
     <p>Laissez-vous surprendre par notre destination mystère sélectionnée rien que pour vous.</p>

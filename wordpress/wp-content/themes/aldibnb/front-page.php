@@ -39,10 +39,10 @@ $cities = [
     </div>
     <div class="container-destination-bar">
         <span>Votre style, votre destination.</span>
-        <form class="destination-bar" action="http://localhost:5555/catalog/">
+        <form class="destination-bar" method="post" action ="http://localhost:5555/wp-admin/admin-post.php" enctype="multipart/form-data">
             <div class="case">
                 <label>Destination</label>
-                <input type="text" placeholder="Où voulez-vous aller ?" />
+                <input name="location" id="location" type="text" placeholder="Où voulez-vous aller ?" />
             </div>
             <div class="case">
                 <label>Départ</label>
@@ -54,9 +54,10 @@ $cities = [
             </div>
             <div class="case">
                 <label>Voyageurs</label>
-                <input type="number" placeholder="Avec qui ?" />
+                <input name="voyageurs" id="voyageurs" type="number" placeholder="Avec qui ?" />
             </div>
-            <button onclick="window.location=`/catalog`;"><img src="wp-content/themes/aldibnb/assets/icons/search.svg" /></button>
+            <input type="hidden" name="action" value="search_post">
+            <button type="submit"><img src="wp-content/themes/aldibnb/assets/icons/search.svg" /></button>
         </form>
     </div>
 </div>

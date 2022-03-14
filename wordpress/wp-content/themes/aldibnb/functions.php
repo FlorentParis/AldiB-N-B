@@ -328,17 +328,21 @@ add_action('manage_post_posts_custom_column', function($col, $post_id) {
 /* require_once('options/BannerMessage.php');
 BannerMessage::register(); */
 
-function search_catalog(){
+function search_post(){
 
-    //$voyageur ($adulte + $enfant)
-    $voyageur = 0;
-    if($_POST["adultes"] != 0 && $_POST["enfants"] != 0){
-        $voyageur = $_POST["adultes"] + $_POST["enfants"];
-    }else{
-        if($_POST["adultes"] != 0) {
-            $voyageur = $_POST["adultes"];
-        }elseif($_POST["enfants"] != 0){
-            $voyageur = $_POST["enfants"];
+    //$voyageurs ($_POST["adulte"] + $_POST["enfant"] ou $_POST["voyageurs"]) )
+    $voyageurs = 0;
+    if($_POST["voyageurs"] != 0){
+        $voyageurs = $_POST["voyageurs"];
+    }else {
+        if($_POST["adultes"] != 0 && $_POST["enfants"] != 0){
+            $voyageurs = $_POST["adultes"] + $_POST["enfants"];
+        }else{
+            if($_POST["adultes"] != 0) {
+                $voyageurs = $_POST["adultes"];
+            }elseif($_POST["enfants"] != 0){
+                $voyageurs = $_POST["enfants"];
+            }
         }
     }
 
@@ -392,9 +396,9 @@ function search_catalog(){
 
 
     /* Les comparateurs */
-    if($voyageur==0){
+    if($voyageurs==0){
         $comparateurVoyageur = '>=';
-        $voyageur == 0;
+        $voyageurs == 0;
     }else{
         $comparateurVoyageur = '=';
     };
@@ -421,7 +425,7 @@ function search_catalog(){
             'relation' => 'AND', 
             array( 
                 'key' => 'lit', 
-                'value' => $voyageur,
+                'value' => $voyageurs,
                 'type' => 'numeric', 
                 'compare' => $comparateurVoyageur, 
             ),
@@ -437,8 +441,8 @@ function search_catalog(){
     $_SESSION["args"] = $args;
     wp_redirect(home_url("catalog"));
 };
-add_action('admin_post_nopriv_search_post', 'search_catalog');
-add_action('admin_post_search_post', 'search_catalog');
+add_action('admin_post_nopriv_search_post', 'search_post');
+add_action('admin_post_search_post', 'search_post');
 
 add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {
